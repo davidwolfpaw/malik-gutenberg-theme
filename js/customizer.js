@@ -20,7 +20,7 @@
 		} );
 	} );
 
-	// Header text color.
+	// Header text Color.
 	wp.customize( 'header_textcolor', function( value ) {
 		value.bind( function( to ) {
 			if ( 'blank' === to ) {
@@ -39,4 +39,81 @@
 			}
 		} );
 	} );
+
+	// Background Color.
+	wp.customize( 'background_color', function( value ) {
+		value.bind( function( to ) {
+			$( '.site-header-top, #secondary.primary-sidebar' ).css( {
+				'background-color': to
+			} );
+		} );
+	} );
+
+	// Text Color.
+	wp.customize( 'text_color', function( value ) {
+		value.bind( function( to ) {
+			$( 'body, button, input, select, optgroup, textarea, h1, h2, h3, h4, h5, h6' ).css( {
+				'color': to
+			} );
+		} );
+	} );
+
+	// Accent Text Color.
+	wp.customize( 'accent_text_color', function( value ) {
+		value.bind( function( to ) {
+			$( '.entry-footer, .wp-block-image figcaption' ).css( {
+				'color': to
+			} );
+		} );
+	} );
+
+	// Accent Color.
+	wp.customize( 'accent_color', function( value ) {
+		value.bind( function( to ) {
+			$( 'hr,	hr.wp-block-separator, .wp-block-button .wp-block-button__link' ).css( {
+				'background-color': to
+			} );
+			$( '.comment-navigation, .posts-navigation, .post-navigation, .entry-footer, .author-info' ).css( {
+				'border-bottom-color': to
+			} );
+			$( '.wp-block-pullquote' ).css( {
+				'border-top-color': to,
+				'border-bottom-color': to
+			} );
+		} );
+	} );
+
+	// Header & Footer Color.
+	wp.customize( 'header_footer_color', function( value ) {
+		value.bind( function( to ) {
+			$( '.site-navigation, .site-footer' ).css( {
+				'background-color': to
+			} );
+		} );
+	} );
+
+	// Link Color.
+	wp.customize( 'link_color', function( value ) {
+		value.bind( function( to ) {
+			$( 'a, a:visited' ).css( {
+				'color': to
+			} );
+			$( '#main-navigation a' ).css( {
+				'color': '#FFFFFF'
+			} );
+			$( '.site-title a' ).css( {
+				'color': 'initial'
+			} );
+		} );
+	} );
+
+	// Link Active/Hover/Focus Color.
+	wp.customize( 'link_active_color', function( value ) {
+		value.bind( function( to ) {
+			$( 'a:hover, a:focus, a:active' ).css( {
+				'color': to
+			} );
+		} );
+	} );
+
 } )( jQuery );

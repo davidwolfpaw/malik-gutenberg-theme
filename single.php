@@ -13,9 +13,25 @@ get_header(); ?>
 		<main id="main" class="site-main">
 
 		<?php
-		while ( have_posts() ) : the_post();
+		while ( have_posts() ) :
+
+			the_post();
 
 			get_template_part( 'template-parts/content', get_post_type() );
+
+			if ( true === get_theme_mod( 'author_info' ) ) :
+			?>
+				<div class="author-info">
+					<div class="author-image">
+						<?php echo get_avatar( get_the_author_meta( 'ID' ), 96,'mysteryman', get_the_author_meta( 'display_name' ) ); ?>
+					</div>
+					<div class="author-description">
+						<h4><?php echo get_the_author_meta( 'display_name' ); ?></h4>
+						<p><?php echo get_the_author_meta( 'user_description' ); ?></p>
+					</div>
+				</div><!-- .author-info -->
+			<?php
+			endif;
 
 			the_post_navigation();
 

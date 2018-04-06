@@ -63,10 +63,14 @@ if ( ! function_exists( 'malik_setup' ) ) :
 		 * @link https://codex.wordpress.org/Theme_Logo
 		 */
 		add_theme_support( 'custom-logo', array(
-			'height'      => 250,
-			'width'       => 250,
+			'height'      => 80,
+			'width'       => 240,
 			'flex-width'  => true,
 			'flex-height' => true,
+			'header-text' => array(
+				'site-title',
+				'site-description',
+			),
 		) );
 
 		/**
@@ -76,13 +80,21 @@ if ( ! function_exists( 'malik_setup' ) ) :
 		 */
 		add_theme_support( 'gutenberg', array(
 		   'wide-images' => true,
-		   'colors' => array(
-		        '#EF5656',
-		        '#FF9090',
-		        '#9C98FF',
-		        '#444',
-		    )
+		   'colors'      => array(
+				'#1D2731',
+				'#0B3C5D',
+				'#328CC1',
+				'#D6BB53',
+				'#808182',
+				'#EF5656',
+		   )
 		) );
+
+		/**
+		 * Add support for Gutenberg wide images.
+		 */
+		add_theme_support( 'align-wide' );
+
 	}
 endif;
 add_action( 'after_setup_theme', 'malik_setup' );
@@ -106,9 +118,27 @@ add_action( 'after_setup_theme', 'malik_content_width', 0 );
  */
 function malik_widgets_init() {
 	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'malik' ),
-		'id'            => 'sidebar-1',
+		'name'          => esc_html__( 'Header Right', 'malik' ),
+		'id'            => 'header-right',
+		'description'   => esc_html__( 'Displays in the header, to the right of the site title.', 'malik' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+	register_sidebar( array(
+		'name'          => esc_html__( 'Primary Sidebar', 'malik' ),
+		'id'            => 'primary-sidebar',
 		'description'   => esc_html__( 'Add widgets here.', 'malik' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+	register_sidebar( array(
+		'name'          => esc_html__( 'Footer', 'malik' ),
+		'id'            => 'footer',
+		'description'   => esc_html__( 'Displays in the footer, below the footer menu.', 'malik' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',
@@ -123,15 +153,38 @@ add_action( 'widgets_init', 'malik_widgets_init' );
 function malik_fonts_url() {
 	$fonts_url = '';
 	/* Translators: If there are characters in your language that are not
-	* supported by Playfair Display, translate this to 'off'. Do not translate
+	* supported by Google Fonts, translate this to 'off'. Do not translate
 	* into your own language.
 	*/
-	$font = _x( 'on', 'Playfair Display font: on or off', 'malik' );
+	$font = _x( 'on', 'Theme Google Fonts: on or off', 'malik' );
 	if ( 'off' !== $font ) {
 		$font_families = array();
-		if ( 'off' !== $font ) {
-			// $font_families[] = 'Lora:400,400italic,700,700italic';
-			$font_families[] = 'Playfair Display:400,400i,700,700i';
+		// Get the selected theme fonts or default to Playfair and Lato
+		$font_selection = get_theme_mod( 'font_pairing', 'playfair_lato' );
+		if ( 'playfair_lato' === $font_selection ) {
+			$font_families[] = 'Playfair Display:400,700';
+			$font_families[] = 'Lato:400,400i,700';
+		} elseif ( 'opensans_gentiumbasic' === $font_selection ) {
+			$font_families[] = 'Open Sans:400,700';
+			$font_families[] = 'Gentium Basic:400,400i,700';
+		} elseif ( 'archivoblack_tenorsans' === $font_selection ) {
+			$font_families[] = 'Archivo Black:400';
+			$font_families[] = 'Tenor Sans:400';
+		} elseif ( 'rubik_robotomono' === $font_selection ) {
+			$font_families[] = 'Rubik:400,700';
+			$font_families[] = 'Roboto Mono:400,400i,700';
+		} elseif ( 'ovo_muli' === $font_selection ) {
+			$font_families[] = 'Ovo:400';
+			$font_families[] = 'Muli:400,400i,700';
+		} elseif ( 'opensanscondensed_lora' === $font_selection ) {
+			$font_families[] = 'Open Sans Condensed:300,700';
+			$font_families[] = 'Lora:400,400i,700';
+		} elseif ( 'nixieone_librebaskerville' === $font_selection ) {
+			$font_families[] = 'Nixie One:400';
+			$font_families[] = 'Libre Baskerville:400,400i,700';
+		} else {
+			$font_families[] = 'Playfair Display:400,700';
+			$font_families[] = 'Lato:400,400i,700';
 		}
 		$query_args = array(
 			'family' => urlencode( implode( '|', $font_families ) ),
@@ -146,7 +199,9 @@ function malik_fonts_url() {
  * Gutenberg Editor Styles
  */
 function malik_editor_styles() {
+	// Fonts.
 	wp_enqueue_style( 'malik-fonts', malik_fonts_url(), array(), null );
+	// Editor styles.
 	wp_enqueue_style( 'malik-editor-style', get_template_directory_uri() . '/css/editor-style.css');
 }
 add_action( 'enqueue_block_editor_assets', 'malik_editor_styles' );
@@ -155,22 +210,62 @@ add_action( 'enqueue_block_editor_assets', 'malik_editor_styles' );
  * Enqueue scripts and styles.
  */
 function malik_scripts() {
+	// Fonts.
 	wp_enqueue_style( 'malik-fonts', malik_fonts_url(), array(), null );
 
-	// Primary Styles
+	// Font Awesome http://fontawesome.com.
+    wp_enqueue_script( 'fontawesome5', get_stylesheet_directory_uri() . '/js/fontawesome-all.min.js', array(), '5.0.9', false );
+
+	// Primary Styles.
 	wp_enqueue_style( 'malik-style', get_stylesheet_uri(), array( 'malik-fonts' ) );
-	// Gutenberg Styles
+
+	// Gutenberg Styles.
 	wp_enqueue_style( 'malik-gutenberg-style', get_template_directory_uri() . '/css/blocks.css', array( 'malik-style' ) );
 
-	wp_enqueue_script( 'malik-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20180219', true );
-
-	wp_enqueue_script( 'malik-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20180219', true );
-
+	// Thread comments.
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+
+	// Scripts for the Malik theme.
+	wp_enqueue_script( 'malik-scripts', get_template_directory_uri() . '/js/malik.js', array( 'jquery' ), '20180329', true );
+
+	// Pass theme mods to Malik scripts.
+	$malik_options = array(
+		'night_mode'       => get_theme_mod( 'night_mode', true ),
+		'hide_header'      => get_theme_mod( 'hide_header', true ),
+		'hide_header_menu' => get_theme_mod( 'hide_header_menu', true ),
+		'read_time'        => get_theme_mod( 'read_time', true ),
+		'progression_bar'  => get_theme_mod( 'progression_bar', true ),
+	);
+	wp_localize_script( 'malik-scripts', 'malik_options', $malik_options );
+
 }
 add_action( 'wp_enqueue_scripts', 'malik_scripts' );
+
+// setup FontAwesome 5 SVGs for use
+add_action( 'wp_head', function() {
+    echo '<script>FontAwesomeConfig = { searchPseudoElements: true };</script>';
+}, 1 );
+
+
+// defer loading of scripts
+function malik_defer_scripts( $tag, $handle, $src ) {
+
+    // The handles of the enqueued scripts we want to defer
+    $defer_scripts = array(
+        // 'malik-scripts',
+        'comment-reply',
+        'fontawesome5',
+    );
+
+    if ( in_array( $handle, $defer_scripts ) ) {
+        return '<script src="' . $src . '" defer="defer" type="text/javascript"></script>' . "\n";
+    }
+
+    return $tag;
+}
+add_filter( 'script_loader_tag', 'malik_defer_scripts', 10, 3 );
 
 /**
  * Implement the Custom Header feature.

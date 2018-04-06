@@ -14,8 +14,6 @@
 		<?php malik_post_thumbnail(); ?>
 
 		<div class="entry-header-content">
-			<?php malik_categories(); ?>
-
 			<?php
 			if ( is_singular() ) :
 				the_title( '<h1 class="entry-title">', '</h1>' );
@@ -23,12 +21,15 @@
 				the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 			endif;
 
-			if ( 'post' === get_post_type() ) : ?>
+			if ( 'post' === get_post_type() ) :
+			?>
 			<div class="entry-meta">
 				<?php malik_posted_on(); ?>
+				<?php malik_categories(); ?>
 			</div><!-- .entry-meta -->
 			<?php
-			endif; ?>
+			endif;
+			?>
 		</div>
 	</header><!-- .entry-header -->
 

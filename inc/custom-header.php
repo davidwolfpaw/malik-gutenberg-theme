@@ -18,12 +18,12 @@
  */
 function malik_custom_header_setup() {
 	add_theme_support( 'custom-header', apply_filters( 'malik_custom_header_args', array(
-		'default-image'          => '',
-		'default-text-color'     => '000000',
-		'width'                  => 1000,
-		'height'                 => 250,
-		'flex-height'            => true,
-		'wp-head-callback'       => 'malik_header_style',
+		'default-image'      => '',
+		'default-text-color' => '1D2731',
+		'width'              => 1000,
+		'height'             => 250,
+		'flex-height'        => true,
+		'wp-head-callback'   => 'malik_header_style',
 	) ) );
 }
 add_action( 'after_setup_theme', 'malik_custom_header_setup' );

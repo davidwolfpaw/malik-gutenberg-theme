@@ -1,18 +1,34 @@
 /*--------------------------------------------------------------
 ## Gutenberg Styles
 --------------------------------------------------------------*/
+.entry-content > * {
+	margin: 1.5em auto;
+	max-width: 700px;
+}
 
-.aligncenter img {
-	display: block;
-	margin: 0 auto;
+.entry-content ul,
+.entry-content ol {
+	margin-left: 20px;
+}
+
+.wp-block-cover-text p {
+  padding: 1.5em 20px;
+}
+
+ul.wp-block-latest-posts.alignwide,
+ul.wp-block-latest-posts.alignfull,
+ul.wp-block-latest-posts.is-grid.alignwide,
+ul.wp-block-latest-posts.is-grid.alignwide {
+  padding: 0 20px;
 }
 
 /* Dropcaps */
 p.has-drop-cap:first-letter {
-	font-family: 'Playfair Display', Cambria, 'Hoefler Text', Utopia, 'Liberation Serif', 'Nimbus Roman No9 L Regular', Times, 'Times New Roman', serif;
+	font-family: inherit;
 	font-size: 64px;
 	font-size: 4rem;
-	margin-right: .1em;
+	margin: 0 0.1em 0 0;
+	line-height: 1em;
 }
 
 /* Images */
@@ -26,17 +42,34 @@ p.has-drop-cap:first-letter {
 	font-size: 14px;
 	font-size: 0.875rem;
 	margin: .75em auto;
+	color: #808182;
+}
+
+.wp-block-image img {
+	display: block;
+	width: 100%;
+}
+
+.aligncenter img {
+	display: block;
+	margin: 0 auto;
 }
 
 /* Galleries */
-.wp-block-gallery {
+.wp-block-gallery,
+ul.wp-block-gallery {
 	padding-left: 0;
+	margin: 0;
 }
 .columns-1 {}
 .columns-2 {}
 .columns-3 {}
 .columns-4 {}
 .columns-5 {}
+
+/*.wp-block-gallery:not(.components-placeholder) {
+  margin: 1.5em auto;
+}*/
 
 /* Blockquotes*/
 .wp-block-quote {
@@ -96,15 +129,35 @@ p.has-drop-cap:first-letter {
 .has-parallax {}
 
 /* Video */
-.wp-block-video {
-	margin: 0 0 1.5em;
+.wp-block-video,
+.wp-block-embed.is-type-video {
 	text-align: center;
 }
 
-.wp-block-video video {
+.wp-block-video video,
+.wp-block-embed.is-type-video video {
 	display: block;
-	max-width: 100%;
+ 	max-width: 700px;
 	margin: 0 auto;
+}
+
+.wp-block-embed.type-video > .wp-block-embed__wrapper,
+.wp-block-embed.is-type-video > .wp-block-embed__wrapper {
+	position: relative;
+	width: 100%;
+	height: 0;
+	padding-top: 56.25%;
+}
+
+.wp-block-embed.type-video > .wp-block-embed__wrapper > iframe,
+.wp-block-embed.is-type-video > .wp-block-embed__wrapper > iframe {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
 }
 
 /* Audio */
@@ -112,11 +165,11 @@ p.has-drop-cap:first-letter {
 
 /* Pullquotes */
 .wp-block-pullquote {
-	border-bottom: 3px solid #ef5656;
+	border-bottom: 3px solid #EF5656;
 	border-left: none;
-	border-top: 3px solid #ef5656;
+	border-top: 3px solid #EF5656;
 	color: #555;
-	font-family: 'Playfair Display', Cambria, 'Hoefler Text', Utopia, 'Liberation Serif', 'Nimbus Roman No9 L Regular', Times, 'Times New Roman', serif;
+	font-family: inherit;
 	margin-bottom: 1.5em;
 	padding: .75em;
 }
@@ -125,7 +178,7 @@ p.has-drop-cap:first-letter {
 	font-size: 24px;
 	font-size: 1.5rem;
 	font-style: normal;
-	font-family: 'Playfair Display', Cambria, 'Hoefler Text', Utopia, 'Liberation Serif', 'Nimbus Roman No9 L Regular', Times, 'Times New Roman', serif;
+	font-family: inherit;
 	margin: 0 0 .75em;
 	line-height: 1.1;
 }
@@ -140,18 +193,6 @@ p.has-drop-cap:first-letter {
 	text-transform: uppercase;
 	letter-spacing: 1px;
 	font-weight: bold;
-}
-
-@media screen and (min-width: 37.5em){
-	.wp-block-pullquote {
-		padding: 1.5em 0.75em;
-	}
-
-	.wp-block-pullquote > p {
-		font-size: 36px;
-		font-size: 2.25rem;
-		margin: 0 0 .75em;
-	}
 }
 
 .wp-block-pullquote.alignleft > p,
@@ -196,6 +237,17 @@ p.has-drop-cap:first-letter {
 /* Tables */
 .wp-block-table {
 	display: table;
+	overflow-x: auto;
+}
+
+.wp-block-table table {
+  border-collapse: collapse;
+  width: 100%
+}
+
+.wp-block-table td,
+.wp-block-table th {
+  padding: 0.5em;
 }
 
 .wp-block-table.alignleft,
@@ -227,7 +279,7 @@ p.has-drop-cap:first-letter {
 /* Separator */
 .wp-block-separator {
 	background-color: transparent;
-	border-bottom: 3px solid #ef5656;
+	border-bottom: 3px solid #EF5656;
 	margin-bottom: 1.5em;
 	width: 75%;
 	max-width: 75%;
@@ -251,7 +303,7 @@ p.has-drop-cap:first-letter {
 .wp-block-button.aligncenter {}
 
 .wp-block-button .wp-block-button__link {
-	background-color: #e06e53;
+	background-color: #EF5656;
 	border-radius: 3px;
 	text-transform: uppercase;
 	font-weight: bold;
@@ -279,6 +331,7 @@ p.has-drop-cap:first-letter {
 .is-grid {}
 
 @media (min-width: 768px) {
+
 	.alignfull {
 		clear: both;
 		left: 50%;
@@ -305,7 +358,8 @@ p.has-drop-cap:first-letter {
 		margin-right: auto !important;
 	}
 
-	.alignwide {
+	.alignwide,
+	.entry-content ul.alignwide {
 		left: 50%;
 		margin-left: -37.5vw;
 		clear: both;
@@ -331,4 +385,15 @@ p.has-drop-cap:first-letter {
 	.wp-block-image.alignleft {
 		margin-left: -12.5vw;
 	}
+
+	.wp-block-pullquote {
+		padding: 1.5em 0.75em;
+	}
+
+	.wp-block-pullquote > p {
+		font-size: 36px;
+		font-size: 2.25rem;
+		margin: 0 0 .75em;
+	}
+
 }
