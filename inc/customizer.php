@@ -138,7 +138,7 @@ function malik_customize_register( $wp_customize ) {
 	// Control: Hide Header Menu on Scroll.
 	$wp_customize->add_control( 'hide_header_menu_control', array(
 		'label'       => __( 'Hide Header Menu on Scroll', 'malik' ),
-		'description' => __( 'AHide the header menu on scroll.', 'malik' ),
+		'description' => __( 'Hide the header menu on scroll.', 'malik' ),
 		'section'     => 'malik_theme_settings',
 		'type'        => 'checkbox',
 		'settings'    => 'hide_header_menu',
