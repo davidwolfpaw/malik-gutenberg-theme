@@ -16,6 +16,10 @@ function malik_body_classes( $classes ) {
 	if ( ! is_singular() ) {
 		$classes[] = 'hfeed';
 	}
+	// Adds a class of header-side if that option is active
+	if ( 'side' === get_theme_mod( 'header_location' ) ) {
+		$classes[] = 'header-side';
+	}
 
 	return $classes;
 }
