@@ -295,10 +295,10 @@ function malik_customizer_css() {
     ?>
     <style type="text/css">
 		.site-header-top, #secondary.primary-sidebar { background-color: #<?php echo get_theme_mod( 'background_color' ); ?>; }
-        body, button, input, select, optgroup, textarea, h1, h2, h3, h4, h5, h6 { color: <?php echo get_theme_mod( 'text_color' ); ?>; }
-		.entry-footer, .wp-block-image figcaption { color: <?php echo get_theme_mod( 'accent_text_color' ); ?>; }
+        body, button, input, select, optgroup, textarea, h1, h2, h3, h4, h5, h6, .wp-block-pullquote { color: <?php echo get_theme_mod( 'text_color' ); ?>; }
+		.entry-footer, .wp-block-image figcaption, .wp-block-pullquote > cite, .wp-block-latest-posts__post-date { color: <?php echo get_theme_mod( 'accent_text_color' ); ?>; }
 		hr,	hr.wp-block-separator, .wp-block-button .wp-block-button__link {	background-color: <?php echo get_theme_mod( 'accent_color' ); ?>; }
-		.comment-navigation, .posts-navigation, .post-navigation, .entry-footer, .author-info { border-bottom-color: <?php echo get_theme_mod( 'accent_color' ); ?>; }
+		.comment-navigation, .posts-navigation, .post-navigation, .entry-footer, .author-info, .wp-block-separator { border-bottom-color: <?php echo get_theme_mod( 'accent_color' ); ?>; }
 		.wp-block-pullquote { border-top-color: <?php echo get_theme_mod( 'accent_color' ); ?>; border-bottom-color: <?php echo get_theme_mod( 'accent_color' ); ?>; }
 		.site-navigation, .site-footer { background-color: <?php echo get_theme_mod( 'header_footer_color' ); ?>; }
 		a, a:visited { color: <?php echo get_theme_mod( 'link_color' ); ?>; }

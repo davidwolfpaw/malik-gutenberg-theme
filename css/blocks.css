@@ -168,10 +168,10 @@ ul.wp-block-gallery {
 	border-bottom: 3px solid #EF5656;
 	border-left: none;
 	border-top: 3px solid #EF5656;
-	color: #555;
 	font-family: inherit;
 	margin-bottom: 1.5em;
 	padding: .75em;
+	color: #1D2731;
 }
 
 .wp-block-pullquote > p {
@@ -181,10 +181,10 @@ ul.wp-block-gallery {
 	font-family: inherit;
 	margin: 0 0 .75em;
 	line-height: 1.1;
+	opacity: 0.75;
 }
 
 .wp-block-pullquote > cite {
-	color: #777;
 	font-family: Arial, Verdana, sans-serif;
 	font-style: normal;
 	line-height: 1.6;
@@ -193,6 +193,8 @@ ul.wp-block-gallery {
 	text-transform: uppercase;
 	letter-spacing: 1px;
 	font-weight: bold;
+	color: #808182;
+	opacity: 0.75;
 }
 
 .wp-block-pullquote.alignleft > p,
@@ -326,7 +328,7 @@ ul.wp-block-gallery {
 /* Latest Posts */
 .wp-block-latest-posts {}
 .wp-block-latest-posts__post-date {
-	color: #888;
+	color: #808182;
 }
 .is-grid {}
 

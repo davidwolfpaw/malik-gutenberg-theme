@@ -52,7 +52,7 @@
 	// Text Color.
 	wp.customize( 'text_color', function( value ) {
 		value.bind( function( to ) {
-			$( 'body, button, input, select, optgroup, textarea, h1, h2, h3, h4, h5, h6' ).css( {
+			$( 'body, button, input, select, optgroup, textarea, h1, h2, h3, h4, h5, h6, .wp-block-pullquote' ).css( {
 				'color': to
 			} );
 		} );
@@ -61,7 +61,7 @@
 	// Accent Text Color.
 	wp.customize( 'accent_text_color', function( value ) {
 		value.bind( function( to ) {
-			$( '.entry-footer, .wp-block-image figcaption' ).css( {
+			$( '.entry-footer, .wp-block-image figcaption, .wp-block-pullquote > cite, .wp-block-latest-posts__post-date' ).css( {
 				'color': to
 			} );
 		} );
@@ -73,7 +73,7 @@
 			$( 'hr,	hr.wp-block-separator, .wp-block-button .wp-block-button__link' ).css( {
 				'background-color': to
 			} );
-			$( '.comment-navigation, .posts-navigation, .post-navigation, .entry-footer, .author-info' ).css( {
+			$( '.comment-navigation, .posts-navigation, .post-navigation, .entry-footer, .author-info, .wp-block-separator' ).css( {
 				'border-bottom-color': to
 			} );
 			$( '.wp-block-pullquote' ).css( {
