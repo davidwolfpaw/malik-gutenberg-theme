@@ -1417,6 +1417,7 @@ body.night-mode .author-info {
 	.header-side .site-footer {
 		position: relative;
 		grid-area: foot;
+		width: 100%;
 	}
 
 }
