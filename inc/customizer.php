@@ -93,7 +93,7 @@ function malik_customize_register( $wp_customize ) {
 	// Setting: Header Location.
 	$wp_customize->add_setting( 'header_location', array(
 		'default'    => 'top',
-		'transport'  => 'postMessage',
+		'transport'  => 'refresh',
 		'capability' => 'edit_theme_options',
 	) );
 

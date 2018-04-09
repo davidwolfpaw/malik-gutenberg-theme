@@ -33,6 +33,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	## Links
 	## Menus
 # Headers & Titles
+# Header Sidebar
 # Accessibility
 # Alignments
 # Clearings
@@ -45,6 +46,14 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 # Media
 	## Captions
 	## Galleries
+# Media Queries
+	@media screen and (max-width: 600px)
+	@media screen and (min-width: 600px)
+	@media screen and (min-width: 768px)
+		# Header Sidebar
+	@media screen and (min-width: 768px) and (min-height: 600px)
+	@media screen and (min-width: 783px)
+	@media screen and (min-width: 960px)
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
 # Normalize
@@ -496,17 +505,20 @@ textarea {
 /*--------------------------------------------------------------
 # Layout
 --------------------------------------------------------------*/
+.site-content {
+	margin-bottom: 1.5em;
+}
+
 #content {
 	width: 100%;
-	max-width: 760px;
+	max-width: 100%;
 	position: relative;
-	margin: 0 auto;
 	padding-left: 30px;
 	padding-right: 30px;
 }
 
 #primary {
-	margin-left: 180px;
+	/*margin-left: 180px;*/
 }
 
 /*--------------------------------------------------------------
@@ -937,7 +949,9 @@ a:hover, a:active {
 }
 
 .site-footer {
-	margin: 1em 0 0;
+	margin: 0 auto;
+	padding-left: 30px;
+	padding-right: 30px;
 	text-align: center;
 	color: #FFFFFF;
 }
@@ -1210,12 +1224,15 @@ body.night-mode .author-info {
 # Media Queries
 --------------------------------------------------------------*/
 @media screen and (max-width: 600px) {
+
 	.admin-bar .site-header.is-hidden {
 		top: 0;
 	}
+
 }
 
 @media screen and (min-width: 600px) {
+
 	.menu-toggle {
 		display: none;
 	}
@@ -1228,9 +1245,11 @@ body.night-mode .author-info {
 
 	#main-navigation a {
 	}
+
 }
 
 @media screen and (min-width: 768px) {
+
 	.entry-header,
 	.entry-content,
 	.entry-summary,
@@ -1309,9 +1328,111 @@ body.night-mode .author-info {
 		background-color: #FFFFFF;
 	}
 
+	/*--------------------------------------------------------------
+	# Header Sidebar
+	--------------------------------------------------------------*/
+	.header-side .site-wrap {
+		display: grid;
+	  	grid-template-areas: "head main main"
+							 "head main main"
+							 "foot foot foot";
+	  	grid-template-columns: minmax(240px, 1fr) 3fr;
+	}
+
+	.header-side .site-header,
+	.admin-bar.header-side .site-header {
+		position: relative;
+		grid-area: head;
+		top: 0;
+		box-shadow: 0px 0px 3px #1D2731;
+	}
+
+	.header-side .site-header-wrap {
+		position: relative;
+	}
+
+	.header-side .site-header-top {
+		margin: 64px auto 32px;
+	}
+
+	.header-side .site-title {
+		font-size: 30px;
+	}
+
+	.header-side .site-branding {
+		padding-left: 1em;
+		padding-right: 1em;
+	}
+
+	.header-side .site-options {
+		top: -48px;
+		left: 12px;
+	}
+
+	.header-side .header-right-sidebar {
+		position: relative;
+		right: auto;
+		padding-left: 1em;
+		padding-right: 1em;
+	}
+
+	.header-side .site-navigation {
+		background-color: transparent;
+		padding-left: 1em;
+		padding-right: 1em;
+		text-align: center;
+	}
+
+	body.header-side.night-mode .site-navigation {
+		background: transparent;
+	}
+
+	.header-side #main-navigation ul {
+		display: block;
+	}
+
+	body.header-side #main-navigation a {
+		color: #1D2731;
+	}
+
+	body.header-side.night-mode #main-navigation a {
+		color: #FFFFFF;
+	}
+
+	.header-side .site-content {
+		position: relative;
+		grid-area: main;
+		overflow: hidden;
+	}
+
+	.header-side .wp-block-cover-image,
+	.header-side .alignwide,
+	.header-side .alignfull {
+	    left: 0;
+	    margin-left: -30px;
+	    width: calc(100% + 60px);
+	    transform: translateX(0);
+	}
+
+	.header-side .site-footer {
+		position: relative;
+		grid-area: foot;
+	}
+
+}
+
+
+@media screen and (min-width: 768px) and (min-height: 600px) {
+
+	/* Make side header fixed when we have enough height for it */
+	.header-side .site-header-wrap {
+		position: fixed;
+	}
+
 }
 
 @media screen and (min-width: 783px) {
+
 	.admin-bar .site-header {
 		top: 32px;
 	}
@@ -1321,10 +1442,9 @@ body.night-mode .author-info {
 	      -ms-transform: translateY( -100% );
 	          transform: translateY( -100% );
 	}
+
 }
 
 @media screen and (min-width: 960px) {
-	#primary {
-		margin-left: 0;
-	}
+
 }

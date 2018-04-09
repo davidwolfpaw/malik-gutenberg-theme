@@ -332,27 +332,27 @@ ul.wp-block-gallery {
 }
 .is-grid {}
 
+.alignfull {
+	clear: both;
+	left: 50%;
+	transform: translateX(-50%);
+	position: relative;
+	width: 100vw;
+	max-width: 100vw;
+	overflow-x: hidden;
+	margin: 0 0 1.5em;
+}
+
+.wp-block-cover-image {
+	left: 50%;
+	margin-left: -50vw;
+	width: 100vw;
+	position: relative;
+	overflow-x: hidden;
+	max-width: 100vw;
+}
+
 @media (min-width: 768px) {
-
-	.alignfull {
-		clear: both;
-		left: 50%;
-		transform: translateX(-50%);
-		position: relative;
-		width: 100vw;
-		max-width: 100vw;
-		overflow-x: hidden;
-		margin: 0 0 1.5em;
-	}
-
-	.wp-block-cover-image {
-		left: 50%;
-		margin-left: -50vw;
-		width: 100vw;
-		position: relative;
-		overflow-x: hidden;
-		max-width: 100vw;
-	}
 
 	.alignfull .jetpack-video-wrapper iframe,
 	.alignwide .jetpack-video-wrapper iframe {

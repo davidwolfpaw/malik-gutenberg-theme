@@ -232,6 +232,7 @@ function malik_scripts() {
 
 	// Pass theme mods to Malik scripts.
 	$malik_options = array(
+		'header_location'  => get_theme_mod( 'header_location', 'top' ),
 		'night_mode'       => get_theme_mod( 'night_mode', true ),
 		'hide_header'      => get_theme_mod( 'hide_header', true ),
 		'hide_header_menu' => get_theme_mod( 'hide_header_menu', true ),
