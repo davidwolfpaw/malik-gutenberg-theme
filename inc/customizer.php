@@ -84,7 +84,7 @@ function malik_customize_register( $wp_customize ) {
 
 	// Section: Malik Options.
 	$wp_customize->add_section( 'malik_theme_settings', array(
-		'priority'       => 160,
+		'priority'       => 40,
 		'title'          => __( 'Malik Theme Settings', 'malik' ),
 		'description'    => __( 'Settings specific to the Malik theme.', 'malik' ),
 		'capability'     => 'edit_theme_options',
