@@ -732,10 +732,10 @@ a:hover, a:active {
 .post-navigation,
 .author-info {
 	border-bottom: 1px solid #1D2731;
-	margin: 0 auto 48px;
+	margin: 0 auto 40px;
 	max-width: 720px;
 	overflow: hidden;
-	padding-bottom: 48px;
+	padding-bottom: 40px;
 }
 
 .nav-links {
@@ -1033,6 +1033,7 @@ a:hover, a:active {
 .author-info {
 	display: block;
 	overflow: hidden;
+	padding-bottom: 0;
 }
 
 .author-image {
