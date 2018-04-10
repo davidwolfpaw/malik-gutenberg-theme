@@ -544,6 +544,11 @@ textarea {
 	margin-bottom: 3.5em;
 }
 
+.site-header-wrap {
+	/* Fixes spacing issue on hidden header */
+	margin-bottom: 1px;
+}
+
 .site-header-top {
 	position: relative;
 	z-index: 2;
@@ -624,7 +629,7 @@ textarea {
   position: fixed;
 }
 
-.site-navigation.slide-up {
+.site-navigation.is-hidden {
   -webkit-transform: translateY(-100%);
       -ms-transform: translateY(-100%);
           transform: translateY(-100%);
@@ -938,6 +943,13 @@ a:hover, a:active {
 	line-height: 1.5rem;
 }
 
+.header-right-sidebar .widget ul,
+.header-right-sidebar .widget ol {
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+}
+
 .footer-sidebar .widget {
 	margin-bottom: 0;
 	flex: 1 0 auto;
@@ -1234,13 +1246,22 @@ body.night-mode .author-info {
 --------------------------------------------------------------*/
 @media screen and (max-width: 600px) {
 
+	.admin-bar .site-header,
 	.admin-bar .site-header.is-hidden {
 		top: 0;
+	}
+
+	.admin-bar .site-header.top {
+		top: 46px;
 	}
 
 }
 
 @media screen and (min-width: 600px) {
+
+	.admin-bar .site-header.top {
+		top: 46px;
+	}
 
 	.menu-toggle {
 		display: none;
@@ -1363,6 +1384,19 @@ body.night-mode .author-info {
 		width: inherit;
 	}
 
+	.header-side .site-header .header-right-sidebar,
+	.header-side .site-header .site-navigation {
+		opacity: 1;
+		-webkit-transition: all 0.5s;
+		-moz-transition: all 0.5s;
+		transition: all 0.5s;
+	}
+
+	.header-side .site-header.fade .header-right-sidebar,
+	.header-side .site-header.fade .site-navigation {
+		opacity: 0;
+	}
+
 	.header-side .site-header-top {
 		margin: 64px auto 32px;
 	}
@@ -1386,6 +1420,7 @@ body.night-mode .author-info {
 		right: auto;
 		padding-left: 1em;
 		padding-right: 1em;
+		text-align: center;
 	}
 
 	.header-side .site-navigation {
@@ -1436,7 +1471,7 @@ body.night-mode .author-info {
 }
 
 
-@media screen and (min-width: 768px) and (min-height: 600px) {
+@media screen and (min-width: 768px) and (min-height: 720px) {
 
 	/* Make side header fixed when we have enough height for it */
 	.header-side .site-header-wrap {
@@ -1447,8 +1482,14 @@ body.night-mode .author-info {
 
 @media screen and (min-width: 783px) {
 
-	.admin-bar .site-header {
+	.admin-bar .site-header,
+	.admin-bar .site-header.top {
 		top: 32px;
+	}
+
+	.header-side .site-header,
+	.admin-bar.header-side .site-header {
+		top: 0;
 	}
 
 	.admin-bar .site-header.is-hidden {

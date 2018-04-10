@@ -94,54 +94,86 @@ jQuery(document).ready(function($) {
       });
     }
 
-    // If header on top
-    // If header on side but under 768px
+  }(jQuery));
 
+}); /* end of as page load scripts */
+
+
+/**
+ * Sticky Menu Header
+ *
+ * Handles whether the header and header menu are sticky or not
+ */
+jQuery(document).ready(function($) {
+
+  (function( $ ) {
+
+    "use strict";
+
+    /* Get viewport width */
+    var responsive_viewport = $(window).width();
 
     // If header is on the side and screen is wide enough, ignore header stickiness.
-    if( ( 'side' === malik_options.header_location && ( responsive_viewport < 768 ) ) || 'top' === malik_options.header_location ) {
+    // if( ( 'side' === malik_options.header_location && ( responsive_viewport < 768 ) ) || 'top' === malik_options.header_location ) {
 
-    console.log(malik_options.header_location);
+      const siteHeader = $('.site-header');
+      const siteHeaderTop = $('.site-header-top');
+      const siteNavigation = $('.site-navigation');
+      const siteContent = $('.site-content');
+      let headerHeight = siteHeader.height();
 
-      // Allow header and menu hiding if activated.
-      if( true == malik_options.hide_header || true == malik_options.hide_header_menu ) {
+      // Set scrolling variables
+      let scrolling = false;
+      let previousTop = 0;
+      let currentTop = 0;
+      let scrollDelta = 1;
+      let scrollOffset = 50;
 
-        const siteHeader = $('.site-header');
-        const siteHeaderTop = $('.site-header-top');
-        const siteNavigation = $('.site-navigation');
-        const siteContent = $('.site-content');
-        let headerHeight = siteHeader.height();
-
-        // Set scrolling variables
-        let scrolling = false;
-        let previousTop = 0;
-        let currentTop = 0;
-        let scrollDelta = 1;
-        let scrollOffset = 50;
-
+      if( 'top' === sideOrTop() ) {
         // Push the site content below the fixed header.
         siteContent.css( 'margin-top', headerHeight);
 
-        $(window).on('scroll', function(){
-          if( !scrolling ) {
-            scrolling = true;
-            (!window.requestAnimationFrame)
-              ? setTimeout(autoHideHeader, 250)
-              : requestAnimationFrame(autoHideHeader);
-          }
-        });
+        calculateHeaderTop();
+      }
 
-        $(window).on('resize', function(){
-          headerHeight = siteHeader.height();
-        });
+      $(window).on('resize', function(){
+        headerHeight = siteHeader.height();
+      });
 
-        function autoHideHeader() {
-          currentTop = $(window).scrollTop();
+      $(window).on('scroll', function(){
+        if( !scrolling ) {
+          scrolling = true;
+          (!window.requestAnimationFrame)
+            ? setTimeout(autoHideHeader, 250)
+            : requestAnimationFrame(autoHideHeader);
+        }
+      });
 
-          if( 0 === currentTop ) {
-            siteHeaderTop.addClass('top');
-          }
+      function calculateHeaderTop() {
+        // Calculate the current distance to the top of the document.
+        currentTop = $(window).scrollTop();
 
+        // If we're at the top of the document, add a class to the header.
+        if( 0 === currentTop ) {
+          siteHeader.addClass('top');
+        } else {
+          siteHeader.removeClass('top');
+        }
+      }
+
+      function sideOrTop() {
+        // If header is on the side and screen is wide enough, ignore header stickiness.
+        if( ( 'side' === malik_options.header_location && ( responsive_viewport < 768 ) ) || 'top' === malik_options.header_location ) {
+          return 'top';
+        } else {
+          return 'side';
+        }
+      }
+
+      function autoHideHeader() {
+        calculateHeaderTop();
+
+        if( 'top' === sideOrTop() ) {
           if( true == malik_options.hide_header && true == malik_options.hide_header_menu ) {
             hideHeaderAndMenu(currentTop);
           } else if( true == malik_options.hide_header ) {
@@ -149,78 +181,90 @@ jQuery(document).ready(function($) {
           } else if( true == malik_options.hide_header_menu ) {
             hideMenu(currentTop);
           }
+        } else if( 'side' === sideOrTop() ) {
+          sideHide(currentTop);
+        }
 
           previousTop = currentTop;
           scrolling = false;
-        }
+      }
 
-        function hideHeaderAndMenu(currentTop) {
-          // Header menu and header hides on scroll
-          if (previousTop - currentTop > scrollDelta) {
-            // Scrolling up.
+      function hideHeaderAndMenu(currentTop) {
+        // Header menu and header hides on scroll
+        if (previousTop - currentTop > scrollDelta) {
+          // Scrolling up.
+          siteHeader.removeClass('is-hidden');
+        } else if( currentTop - previousTop > scrollDelta && currentTop > scrollOffset) {
+          // Scrolling down.
+          siteHeader.addClass('is-hidden');
+        }
+      }
+
+      function hideHeader(currentTop) {
+        // Header menu is sticky on scroll
+        var secondaryNavOffsetTop = siteNavigation.height() - siteHeader.height();
+
+        if (previousTop >= currentTop ) {
+          // Scrolling up.
+          if( currentTop < secondaryNavOffsetTop ) {
             siteHeader.removeClass('is-hidden');
-          } else if( currentTop - previousTop > scrollDelta && currentTop > scrollOffset) {
-            // Scrolling down.
+            siteNavigation.removeClass('fixed');
+          } else if( previousTop - currentTop > scrollDelta ) {
+            siteHeader.removeClass('is-hidden');
+            siteNavigation.addClass('fixed');
+          }
+
+        } else {
+          // Scrolling down.
+          if( currentTop > secondaryNavOffsetTop + scrollOffset ) {
+            // Hide navigation.
             siteHeader.addClass('is-hidden');
+            siteNavigation.addClass('fixed');
+          } else if( currentTop > secondaryNavOffsetTop ) {
+            // Once the secondary nav is fixed, do not hide primary nav if you haven't scrolled more than scrollOffset.
+            siteHeader.removeClass('is-hidden');
+            siteNavigation.addClass('fixed');
           }
         }
+      }
 
-        function hideHeader(currentTop) {
-          // Header menu is sticky on scroll
-          var secondaryNavOffsetTop = siteNavigation.height() - siteHeader.height();
+      function hideMenu(currentTop) {
+        // Header menu is hidden on scroll.
+        var secondaryNavOffsetTop = siteNavigation.height() - siteHeader.height();
 
-          if (previousTop >= currentTop ) {
-            // Scrolling up.
-            if( currentTop < secondaryNavOffsetTop ) {
-              siteHeader.removeClass('is-hidden');
-              siteNavigation.removeClass('fixed');
-            } else if( previousTop - currentTop > scrollDelta ) {
-              siteHeader.removeClass('is-hidden');
-              siteNavigation.addClass('fixed');
-            }
+        if (previousTop >= currentTop ) {
+          // Scrolling up.
+          if( currentTop < secondaryNavOffsetTop ) {
+            // Secondary nav is not fixed.
+            siteNavigation.removeClass('is-hidden');
+          } else if( previousTop - currentTop > scrollDelta ) {
+            // Secondary nav is fixed.
+            siteNavigation.removeClass('is-hidden');
+          }
 
-          } else {
-            // Scrolling down.
-            if( currentTop > secondaryNavOffsetTop + scrollOffset ) {
-              // Hide navigation
-              siteHeader.addClass('is-hidden');
-              siteNavigation.addClass('fixed');
-            } else if( currentTop > secondaryNavOffsetTop ) {
-              //once the secondary nav is fixed, do not hide primary nav if you haven't scrolled more than scrollOffset
-              siteHeader.removeClass('is-hidden');
-              siteNavigation.addClass('fixed');
-            }
+        } else {
+          // Scrolling down.
+          if( currentTop > secondaryNavOffsetTop + scrollOffset ) {
+            // Hide header navigation.
+            siteNavigation.addClass('is-hidden');
+          } else if( currentTop > secondaryNavOffsetTop ) {
+            siteNavigation.removeClass('is-hidden');
           }
         }
+      }
 
-        function hideMenu(currentTop) {
-          // Header menu is hidden on scroll
-          var secondaryNavOffsetTop = siteNavigation.height() - siteHeader.height();
-
-          if (previousTop >= currentTop ) {
-            // Scrolling up.
-            if( currentTop < secondaryNavOffsetTop ) {
-              //secondary nav is not fixed
-              siteNavigation.removeClass('slide-up');
-            } else if( previousTop - currentTop > scrollDelta ) {
-              //secondary nav is fixed
-              siteNavigation.removeClass('slide-up');
-            }
-
-          } else {
-            // Scrolling down.
-            if( currentTop > secondaryNavOffsetTop + scrollOffset ) {
-              // Hide header navigation
-              siteNavigation.addClass('slide-up');
-            } else if( currentTop > secondaryNavOffsetTop ) {
-              siteNavigation.removeClass('slide-up');
-            }
-          }
+      function sideHide(currentTop) {
+        // Header menu and header hides on scroll
+        if (previousTop - currentTop > scrollDelta) {
+          // Scrolling up.
+          siteHeader.removeClass('fade');
+        } else if( currentTop - previousTop > scrollDelta && currentTop > scrollOffset) {
+          // Scrolling down.
+          siteHeader.addClass('fade');
         }
+      }
 
-      } // End If Hide Header or Menu
-
-    } // End If Header Top
+    // } // End If Header Top
 
   }(jQuery));
 
