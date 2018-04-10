@@ -74,6 +74,11 @@ if ( ! function_exists( 'malik_setup' ) ) :
 		) );
 
 		/**
+		 * Add support for Gutenberg wide images.
+		 */
+		 remove_theme_support( 'custom-header' );
+
+		/**
 		 * Add support for Gutenberg.
 		 *
 		 * @link https://wordpress.org/gutenberg/
@@ -97,7 +102,7 @@ if ( ! function_exists( 'malik_setup' ) ) :
 
 	}
 endif;
-add_action( 'after_setup_theme', 'malik_setup' );
+add_action( 'after_setup_theme', 'malik_setup', 20 );
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.

@@ -19,7 +19,7 @@ function malik_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'background_color' )->transport    = 'postMessage';
 	$wp_customize->get_setting( 'background_color' )->default      = '#FFFFFF';
 
-	// $wp_customize->remove_setting( 'header_textcolor' );
+	$wp_customize->remove_section( 'custom-header' );
 
     // Text color
     $wp_customize->add_setting( 'text_color', array(
@@ -100,7 +100,7 @@ function malik_customize_register( $wp_customize ) {
 	// Control: Header Location.
 	$wp_customize->add_control( 'header_location_control', array(
 		'label'       => __( 'Header Location', 'malik' ),
-		'description' => __( 'Choose whether to place the site header at the top or side of the page.', 'malik' ),
+		'description' => __( 'Choose whether to place the site header at the top or side of the page.<br /> <strong>Header will always display on top on mobile</strong>', 'malik' ),
 		'section'     => 'malik_theme_settings',
 		'type'        => 'radio',
 		'choices'     => array(

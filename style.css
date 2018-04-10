@@ -1417,13 +1417,14 @@ body.night-mode .author-info {
 		overflow: hidden;
 	}
 
-	.header-side .wp-block-cover-image,
+	.header-side .wp-block-cover-image.alignfull,
 	.header-side .alignwide,
 	.header-side .alignfull {
-	    left: 0;
-	    margin-left: -30px;
-	    width: calc(100% + 60px);
-	    transform: translateX(0);
+	    width: calc(100vw - 240px);
+	}
+
+	.header-side .wp-block-cover-image.alignfull {
+		transform: translateX(120px);
 	}
 
 	.header-side .site-footer {

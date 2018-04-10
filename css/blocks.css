@@ -350,6 +350,7 @@ ul.wp-block-gallery {
 	position: relative;
 	overflow-x: hidden;
 	max-width: 100vw;
+	display: flex;
 }
 
 @media (min-width: 768px) {
