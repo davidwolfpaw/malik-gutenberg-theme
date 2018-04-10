@@ -513,8 +513,7 @@ textarea {
 	width: 100%;
 	max-width: 100%;
 	position: relative;
-	padding-left: 30px;
-	padding-right: 30px;
+	padding: 24px 32px;
 }
 
 #primary {
@@ -563,7 +562,22 @@ textarea {
 .site-branding {
 	text-align: center;
 	margin: 0 auto;
+	padding-top: 0.25em;
 	padding-bottom: 0.5em;
+}
+
+.custom-logo-link {
+	line-height: 1;
+	display: block;
+}
+
+.custom-logo-link img {
+	max-width: 300px;
+	max-height: 60px;
+	width: auto;
+	height: auto;
+	display: block;
+	margin: 0 auto;
 }
 
 .site-description {
@@ -740,7 +754,6 @@ a:hover, a:active {
 # Headers & Titles
 --------------------------------------------------------------*/
 .site-title {
-	padding-top: 0.25em;
 	margin: 0;
 	font-size: 38px;
 	font-weight: bold;
@@ -964,7 +977,7 @@ a:hover, a:active {
 }
 
 .hentry {
-	margin: 60px 0;
+	margin: 0 auto;
 }
 
 .updated:not(.published) {
@@ -1076,11 +1089,6 @@ object {
 	max-width: 100%;
 }
 
-/* Make sure logo link wraps around logo image. */
-.custom-logo-link {
-	display: inline-block;
-}
-
 /*--------------------------------------------------------------
 ## Captions
 --------------------------------------------------------------*/
@@ -1179,7 +1187,8 @@ a, a:visited,
 .wp-block-pullquote > cite,
 .wp-block-quote cite,
 .wp-block-quote footer,
-.wp-block-image figcaption {
+.wp-block-image figcaption,
+.site-description {
 	-webkit-transition: all 0.25s;
 	-moz-transition: all 0.25s;
 	transition: all 0.25s;
@@ -1333,10 +1342,10 @@ body.night-mode .author-info {
 	--------------------------------------------------------------*/
 	.header-side .site-wrap {
 		display: grid;
-	  	grid-template-areas: "head main main"
-							 "head main main"
-							 "foot foot foot";
-	  	grid-template-columns: minmax(240px, 1fr) 3fr;
+	  	grid-template-areas:"head main"
+	  						"head main"
+	  						"head foot";
+    	grid-template-columns: 240px calc(100% - 240px);
 	}
 
 	.header-side .site-header,
@@ -1345,10 +1354,13 @@ body.night-mode .author-info {
 		grid-area: head;
 		top: 0;
 		box-shadow: 0px 0px 3px #1D2731;
+		margin-bottom: 0;
+		width: 240px;
 	}
 
 	.header-side .site-header-wrap {
 		position: relative;
+		width: inherit;
 	}
 
 	.header-side .site-header-top {
