@@ -529,9 +529,9 @@ textarea {
 	top: 0;
 	left: 0;
 	width: 100%;
-	-webkit-transition: all 0.5s;
-	-moz-transition: all 0.5s;
-	transition: all 0.5s;
+	-webkit-transition: transform 0.5s;
+	-moz-transition: transform 0.5s;
+	transition: transform 0.5s;
 }
 
 .site-header.is-hidden {
@@ -553,9 +553,9 @@ textarea {
 	position: relative;
 	z-index: 2;
 	background-color: #FFFFFF;
-	-webkit-transition: all 0.5s;
-	-moz-transition: all 0.5s;
-	transition: all 0.5s;
+	-webkit-transition: background-color 0.5s;
+	-moz-transition: background-color 0.5s;
+	transition: background-color 0.5s;
 }
 
 .site-header-top.is-hidden {
@@ -598,6 +598,7 @@ textarea {
 	position: absolute;
 	top: 12px;
 	right: 12px;
+	z-index: 3;
 }
 
 .site-options + .header-right-sidebar {
@@ -1182,6 +1183,10 @@ body {
 	transition: background-color 0.5s, color 0.5s;
 }
 
+#night-mode {
+	display: inline-block;
+}
+
 body.night-mode,
 body.night-mode .site-header-top,
 body.night-mode .site-footer {
@@ -1387,9 +1392,9 @@ body.night-mode .author-info {
 	.header-side .site-header .header-right-sidebar,
 	.header-side .site-header .site-navigation {
 		opacity: 1;
-		-webkit-transition: all 0.5s;
-		-moz-transition: all 0.5s;
-		transition: all 0.5s;
+		-webkit-transition: opacity 0.5s;
+		-moz-transition: opacity 0.5s;
+		transition: opacity 0.5s;
 	}
 
 	.header-side .site-header.fade .header-right-sidebar,
