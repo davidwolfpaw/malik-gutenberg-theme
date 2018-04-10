@@ -14,9 +14,9 @@ I have several features ready to go to make your site unique to you. Just by usi
     -  Background Color
     -  Text Color
     -  Accent Text Color _(things like captions, citations, post meta, and entry footers)_
-    -  Accent Color _(things like thematic breaks, block separators, buttons, progression bar, and navigation and quote borders)_
+    -  Accent Color _(things like thematic breaks, block separators, buttons, and navigation and quote borders)_
     - Header Menu & Footer Color _(for the background of those sections)_
-    - Link Color
+    - Link Color _(also progression bar color)_
     - Link Active/Hover/Focus Color
 * Theme Settings
     - Header Location - You can choose to keep my head on top, or put it to the side. It won't bother me!

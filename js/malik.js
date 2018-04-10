@@ -84,7 +84,9 @@ jQuery(document).ready(function($) {
 
     // Display article progress bar if activated
     if( true == malik_options.progression_bar ) {
-      $("body").prognroll();
+      $("body.single").prognroll({
+        color: malik_options.link_color
+      });
     }
 
     // Allow nightmode if activated.

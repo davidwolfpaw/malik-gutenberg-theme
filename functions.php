@@ -243,6 +243,7 @@ function malik_scripts() {
 		'hide_header_menu' => get_theme_mod( 'hide_header_menu', true ),
 		'read_time'        => get_theme_mod( 'read_time', true ),
 		'progression_bar'  => get_theme_mod( 'progression_bar', true ),
+		'link_color'       => get_theme_mod( 'link_color', '328CC1' ),
 	);
 	wp_localize_script( 'malik-scripts', 'malik_options', $malik_options );
 
