@@ -28,6 +28,12 @@ I have several features ready to go to make your site unique to you. Just by usi
     - Article Progression Bar - Show a progression bar for how far you've scrolled in an article
     - Author Info - Choose whether to display the author picture, display name, and description at the bottom of articles
 
-### In Progress
+### Night Mode
+![Night Mode Animation](screenshots/night-mode.gif)
+
+### Sticky Menu
+![Sticky Menu Animation](screenshots/sticky-menu.gif)
+
+## In Progress
 
 I am still trying to decide how I want to wear a sidebar when I'm displaying full width content. I'm working on a few ideas, but if you've got suggestions, let me know!
