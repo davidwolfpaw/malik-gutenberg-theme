@@ -182,7 +182,9 @@ jQuery(document).ready(function($) {
             hideMenu(currentTop);
           }
         } else if( 'side' === sideOrTop() ) {
-          sideHide(currentTop);
+          if( true == malik_options.hide_header ) {
+            sideHide(currentTop);
+          }
         }
 
           previousTop = currentTop;
