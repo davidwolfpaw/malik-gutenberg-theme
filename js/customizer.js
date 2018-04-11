@@ -104,6 +104,12 @@
 			$( '.site-title a' ).css( {
 				'color': 'initial'
 			} );
+			$( '.bar' ).css( {
+				'background-color': to
+			} );
+			$( '.wp-block-quote:not(.is-large)' ).css( {
+				'border-left-color': to
+			} );
 		} );
 	} );
 

@@ -301,6 +301,7 @@ function malik_customizer_css() {
 		.comment-navigation, .posts-navigation, .post-navigation, .entry-footer, .author-info, .wp-block-separator { border-bottom-color: <?php echo get_theme_mod( 'accent_color' ); ?>; }
 		.wp-block-pullquote { border-top-color: <?php echo get_theme_mod( 'accent_color' ); ?>; border-bottom-color: <?php echo get_theme_mod( 'accent_color' ); ?>; }
 		.site-navigation, .site-footer { background-color: <?php echo get_theme_mod( 'header_footer_color' ); ?>; }
+		.wp-block-quote:not(.is-large) { border-left-color: <?php echo get_theme_mod( 'link_color' ); ?>; }
 		a, a:visited { color: <?php echo get_theme_mod( 'link_color' ); ?>; }
 		a:hover, a:focus, a:active { color: <?php echo get_theme_mod( 'link_active_color' ); ?>; }
     </style>

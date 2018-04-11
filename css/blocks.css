@@ -113,6 +113,12 @@ ul.wp-block-gallery {
 	text-align: right;
 }
 
+.wp-block-quote:not(.is-large) {
+	border-left: 4px solid #328cc1;
+    padding-left: 1em;
+    font-style: italic;
+}
+
 .blocks-quote-style-1 {}
 .blocks-quote-style-2 {}
 
@@ -378,7 +384,7 @@ ul.wp-block-gallery {
 	}
 
 	.wp-block-quote {
-		font-size: 24px;
+		font-size: 1.25em;
 	}
 
 	.wp-block-image.alignright {
