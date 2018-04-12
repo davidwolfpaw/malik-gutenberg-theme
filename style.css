@@ -1710,16 +1710,6 @@ body.night-mode .author-info {
 		margin-right: auto !important;
 	}
 
-	.alignwide,
-	.entry-content ul.alignwide {
-		left: 50%;
-		margin-left: -37.5vw;
-		clear: both;
-		position: relative;
-		width: 75vw;
-		max-width: 75vw;
-	}
-
 	.alignwide img,
 	.alignfull img {
 		display: block;
@@ -1775,6 +1765,16 @@ body.night-mode .author-info {
 
 }
 
-@media screen and (min-width: 960px) {
+@media screen and (min-width: 1024px) {
+
+	.alignwide,
+	.entry-content ul.alignwide {
+		left: 50%;
+		margin-left: -40vw;
+		clear: both;
+		position: relative;
+		width: 80vw;
+		max-width: 80vw;
+	}
 
 }
