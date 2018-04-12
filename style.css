@@ -47,6 +47,8 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 # Media
 	## Captions
 	## Galleries
+	## Gutenberg Blocks
+# Night Mode
 # Media Queries
 	@media screen and (max-width: 600px)
 	@media screen and (min-width: 600px)
@@ -209,6 +211,8 @@ input[type="submit"] {
 	-webkit-appearance: button;
 	cursor: pointer;
 	border: none;
+	margin-bottom: 1.5em;
+	text-align: center;
 }
 
 button[disabled],
@@ -261,16 +265,6 @@ optgroup {
 	font-weight: bold;
 }
 
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
-
-td,
-th {
-	padding: 0;
-}
-
 /*--------------------------------------------------------------
 # Typography
 --------------------------------------------------------------*/
@@ -308,15 +302,6 @@ p {
 
 dfn, cite, em, i {
 	font-style: italic;
-}
-
-blockquote, q {
-	quotes: "" "";
-	margin: 0 1.5em;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-    content: "";
 }
 
 address {
@@ -376,10 +361,11 @@ body {
 
 hr,
 hr.wp-block-separator {
-	background-color: #328CC1;
-	border: 0;
-	height: 1px;
 	margin-bottom: 1.5em;
+	background-color: transparent;
+	border-bottom: 3px solid #EF5656;
+	width: 75%;
+	max-width: 75%;
 }
 
 ul, ol {
@@ -421,6 +407,13 @@ figure {
 table {
 	margin: 0 0 1.5em;
 	width: 100%;
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+td,
+th {
+	padding: 0.5em;
 }
 
 /*--------------------------------------------------------------
@@ -429,18 +422,23 @@ table {
 button,
 input[type="button"],
 input[type="reset"],
-input[type="submit"] {
+input[type="submit"],
+.wp-block-button .wp-block-button__link {
 	border-radius: 4px;
-	background: #328CC1;
 	color: #FFFFFF;
     padding: .5em 1em;
     font-size: 1rem;
+	background-color: #EF5656;
+	text-transform: uppercase;
+	font-weight: bold;
+	letter-spacing: 1px;
 }
 
 button:hover,
 input[type="button"]:hover,
 input[type="reset"]:hover,
-input[type="submit"]:hover {
+input[type="submit"]:hover,
+.wp-block-button .wp-block-button__link:hover {
 	background: #0B3C5D;
 }
 
@@ -450,7 +448,9 @@ input[type="button"]:focus,
 input[type="reset"]:active,
 input[type="reset"]:focus,
 input[type="submit"]:active,
-input[type="submit"]:focus {
+input[type="submit"]:focus,
+.wp-block-button .wp-block-button__link:active,
+.wp-block-button .wp-block-button__link:focus {
 	background: #0B3C5D;
 }
 
@@ -720,6 +720,7 @@ a:hover, a:active {
 	border: none;
 	background: transparent;
 	font-size: 1em;
+	margin: 0;
 	color: #FFFFFF;
 }
 
@@ -859,6 +860,22 @@ a:hover, a:active {
   margin-right: auto;
 }
 
+.aligncenter img {
+	display: block;
+	margin: 0 auto;
+}
+
+.alignfull {
+	clear: both;
+	left: 50%;
+	transform: translateX(-50%);
+	position: relative;
+	width: 100vw;
+	max-width: 100vw;
+	overflow-x: hidden;
+	margin: 0 0 1.5em;
+}
+
 /*--------------------------------------------------------------
 # Clearings
 --------------------------------------------------------------*/
@@ -967,6 +984,11 @@ a:hover, a:active {
 	text-align: left;
 }
 
+#wp-calendar th,
+#wp-calendar td {
+	padding: 0;
+}
+
 /*--------------------------------------------------------------
 # Content
 --------------------------------------------------------------*/
@@ -1017,7 +1039,7 @@ a:hover, a:active {
 .comments-area,
 .footer-sidebar {
 	margin: 1.5em auto;
-	max-width: 720px;
+	max-width: 800px;
 }
 
 .entry-footer span {
@@ -1129,8 +1151,11 @@ object {
 /*--------------------------------------------------------------
 ## Galleries
 --------------------------------------------------------------*/
-.gallery {
-	margin-bottom: 1.5em;
+.gallery
+.wp-block-gallery,
+ul.wp-block-gallery {
+	padding-left: 0;
+	margin: 0 0 1.5em;
 }
 
 .gallery-item {
@@ -1175,6 +1200,217 @@ object {
 .gallery-caption {
 	display: block;
 }
+
+/*--------------------------------------------------------------
+## Gutenberg Blocks
+--------------------------------------------------------------*/
+.wp-block-cover-text p {
+  padding: 1.5em 20px;
+}
+
+/* Dropcaps */
+p.has-drop-cap:first-letter {
+	font-family: inherit;
+	font-size: 64px;
+	font-size: 4rem;
+	margin: 0 0.1em 0 0;
+	line-height: 1em;
+}
+
+/* Images */
+.wp-block-image {
+	margin-bottom: 1.5em;
+	text-align: center;
+}
+
+.wp-block-image figcaption {
+	font-style: italic;
+	font-size: 14px;
+	font-size: 0.875rem;
+	margin: .75em auto;
+	color: #808182;
+}
+
+.wp-block-image img {
+	display: block;
+	width: 100%;
+}
+
+/* Blockquotes*/
+blockquote,
+.wp-block-quote {
+	margin-bottom: 1.5em;
+	border-left: 4px solid #328cc1;
+    padding-left: 1em;
+    font-style: italic;
+    font-size: 1.125em;
+}
+
+blockquote p:last-of-type {
+	margin-bottom: 0;
+}
+
+blockquote cite,
+.wp-block-quote > cite,
+.wp-block-pullquote > cite {
+	display: block;
+	font-size: 18px;
+	font-size: 1.125rem;
+	font-style: italic;
+	margin-bottom: 1.5em;
+	width: 100%;
+}
+
+blockquote.is-large {
+	padding: 0;
+	border-left: none;
+}
+
+blockquote.is-large cite,
+blockquote.wp-block-quote.is-large cite {
+	font-style: normal;
+	font-size: 24px;
+	font-size: 1.5rem;
+	margin-bottom: 2.5em;
+	margin-top: 0;
+	text-align: right;
+}
+
+/* Pullquotes */
+.wp-block-pullquote {
+	border-bottom: 3px solid #EF5656;
+	border-left: none;
+	border-top: 3px solid #EF5656;
+	padding: .75em;
+	color: #1D2731;
+}
+
+.wp-block-pullquote > p {
+	font-size: 1.5em;
+	font-style: normal;
+	font-family: inherit;
+	margin: 0 0 .75em;
+	line-height: 1.1;
+	opacity: 0.75;
+}
+
+.wp-block-pullquote > cite {
+	font-style: normal;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-weight: bold;
+	color: #808182;
+	opacity: 0.75;
+	margin: 1.5em 0 0 0;
+}
+
+.wp-block-pullquote.alignleft > p,
+.wp-block-pullquote.alignright > p {
+	font-size: 24px;
+	font-size: 1.5rem;
+}
+
+.wp-block-pullquote.alignleft {
+	text-align: left;
+}
+
+.wp-block-pullquote.alignright {
+	text-align: right;
+}
+
+/* Video */
+.wp-block-video,
+.wp-block-embed.is-type-video {
+	text-align: center;
+}
+
+.wp-block-video video,
+.wp-block-embed.is-type-video video {
+	display: block;
+ 	max-width: 700px;
+	margin: 0 auto;
+}
+
+.wp-block-embed.type-video > .wp-block-embed__wrapper,
+.wp-block-embed.is-type-video > .wp-block-embed__wrapper {
+	position: relative;
+	width: 100%;
+	height: 0;
+	padding-top: 56.25%;
+}
+
+.wp-block-embed.type-video > .wp-block-embed__wrapper > iframe,
+.wp-block-embed.is-type-video > .wp-block-embed__wrapper > iframe {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
+
+/* Cover Images */
+.wp-block-cover-image {
+	left: 50%;
+	margin-left: -50vw;
+	width: 100vw;
+	position: relative;
+	overflow-x: hidden;
+	max-width: 100vw;
+	display: flex;
+}
+
+.wp-block-cover-image.alignfull {
+	transform: translateX(0);
+}
+
+/* Tables */
+.wp-block-table {
+	display: table;
+	overflow-x: auto;
+}
+
+table,
+.wp-block-table table {
+  width: 100%
+}
+
+.wp-block-table.alignleft,
+.wp-block-table.alignright {
+	max-width: 50%;
+}
+
+/* Separator */
+.wp-block-separator.alignwide {
+	width: 75vw;
+	max-width: 75vw;
+}
+
+.wp-block-separator.alignfull {
+	width: 100vw;
+	max-width: 100vw;
+}
+
+/* Preformatted */
+.wp-block-preformatted {}
+
+/* Code */
+.wp-block-code {}
+
+/* Verse */
+.wp-block-verse {
+	border: 0;
+	background: transparent;
+	font-family: inherit;
+}
+
+/* Latest Posts */
+.wp-block-latest-posts {}
+.wp-block-latest-posts__post-date {
+	color: #808182;
+}
+
 
 /*--------------------------------------------------------------
 # Night Mode
@@ -1328,13 +1564,6 @@ body.night-mode .author-info {
 		max-width: 760px;
 	}
 
-	.alignfull {
-		margin-left: calc(50% - 50vw);
-		margin-right: calc(50% - 50vw);
-		width: auto;
-		max-width: 1000%;
-	}
-
 	.alignwide {
 		margin-left: calc(25% - 25vw);
 		margin-right: calc(25% - 25vw);
@@ -1473,6 +1702,40 @@ body.night-mode .author-info {
 		position: relative;
 		grid-area: foot;
 		width: 100%;
+	}
+
+	.alignfull .jetpack-video-wrapper iframe,
+	.alignwide .jetpack-video-wrapper iframe {
+		margin-left: auto !important; /* to override inline styles */
+		margin-right: auto !important;
+	}
+
+	.alignwide,
+	.entry-content ul.alignwide {
+		left: 50%;
+		margin-left: -37.5vw;
+		clear: both;
+		position: relative;
+		width: 75vw;
+		max-width: 75vw;
+	}
+
+	.alignwide img,
+	.alignfull img {
+		display: block;
+		margin: 0 auto;
+	}
+
+	.wp-block-image.alignright {
+		margin-right: -12.5vw;
+	}
+
+	.wp-block-image.alignleft {
+		margin-left: -12.5vw;
+	}
+
+	.wp-block-pullquote {
+		padding: 1.5em 0.75em;
 	}
 
 }

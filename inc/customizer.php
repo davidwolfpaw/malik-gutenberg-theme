@@ -297,8 +297,9 @@ function malik_customizer_css() {
 		.site-header-top, #secondary.primary-sidebar { background-color: #<?php echo get_theme_mod( 'background_color' ); ?>; }
         body, button, input, select, optgroup, textarea, h1, h2, h3, h4, h5, h6, .wp-block-pullquote { color: <?php echo get_theme_mod( 'text_color' ); ?>; }
 		.entry-footer, .wp-block-image figcaption, .wp-block-pullquote > cite, .wp-block-latest-posts__post-date { color: <?php echo get_theme_mod( 'accent_text_color' ); ?>; }
-		hr,	hr.wp-block-separator, .wp-block-button .wp-block-button__link {	background-color: <?php echo get_theme_mod( 'accent_color' ); ?>; }
-		.comment-navigation, .posts-navigation, .post-navigation, .entry-footer, .author-info, .wp-block-separator { border-bottom-color: <?php echo get_theme_mod( 'accent_color' ); ?>; }
+		.wp-block-button .wp-block-button__link {	background-color: <?php echo get_theme_mod( 'link_color' ); ?>; }
+		.wp-block-button .wp-block-button__link:hover, .wp-block-button .wp-block-button__link:active, .wp-block-button .wp-block-button__link:focus {	background-color: <?php echo get_theme_mod( 'link_active_color' ); ?>; }
+		.comment-navigation, .posts-navigation, .post-navigation, .entry-footer, .author-info, hr, .wp-block-separator { border-bottom-color: <?php echo get_theme_mod( 'accent_color' ); ?>; }
 		.wp-block-pullquote { border-top-color: <?php echo get_theme_mod( 'accent_color' ); ?>; border-bottom-color: <?php echo get_theme_mod( 'accent_color' ); ?>; }
 		.site-navigation, .site-footer { background-color: <?php echo get_theme_mod( 'header_footer_color' ); ?>; }
 		.wp-block-quote:not(.is-large) { border-left-color: <?php echo get_theme_mod( 'link_color' ); ?>; }

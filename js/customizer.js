@@ -73,7 +73,7 @@
 			$( 'hr,	hr.wp-block-separator, .wp-block-button .wp-block-button__link' ).css( {
 				'background-color': to
 			} );
-			$( '.comment-navigation, .posts-navigation, .post-navigation, .entry-footer, .author-info, .wp-block-separator' ).css( {
+			$( '.comment-navigation, .posts-navigation, .post-navigation, .entry-footer, .author-info, hr, .wp-block-separator' ).css( {
 				'border-bottom-color': to
 			} );
 			$( '.wp-block-pullquote' ).css( {
@@ -104,8 +104,14 @@
 			$( '.site-title a' ).css( {
 				'color': 'initial'
 			} );
-			$( '.bar' ).css( {
+			$( '.bar, .wp-block-button .wp-block-button__link' ).css( {
 				'background-color': to
+			} );
+			$( '.bar' ).css( {
+				'color': to
+			} );
+			$( '.wp-block-button .wp-block-button__link' ).css( {
+				'color': '#FFFFFF'
 			} );
 			$( '.wp-block-quote:not(.is-large)' ).css( {
 				'border-left-color': to
@@ -118,6 +124,12 @@
 		value.bind( function( to ) {
 			$( 'a:hover, a:focus, a:active' ).css( {
 				'color': to
+			} );
+			$( '.wp-block-button .wp-block-button__link:hover, .wp-block-button .wp-block-button__link:active, .wp-block-button .wp-block-button__link:focus' ).css( {
+				'background-color': to
+			} );
+			$( '.wp-block-button .wp-block-button__link:hover, .wp-block-button .wp-block-button__link:active, .wp-block-button .wp-block-button__link:focus' ).css( {
+				'color': '#FFFFFF'
 			} );
 		} );
 	} );

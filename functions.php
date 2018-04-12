@@ -224,9 +224,6 @@ function malik_scripts() {
 	// Primary Styles.
 	wp_enqueue_style( 'malik-style', get_stylesheet_uri(), array( 'malik-fonts' ) );
 
-	// Gutenberg Styles.
-	wp_enqueue_style( 'malik-gutenberg-style', get_template_directory_uri() . '/css/blocks.css', array( 'malik-style' ) );
-
 	// Thread comments.
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
