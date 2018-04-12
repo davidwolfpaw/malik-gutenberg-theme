@@ -876,6 +876,13 @@ a:hover, a:active {
 	margin: 0 0 1.5em;
 }
 
+.alignwide {
+	margin-left: calc(25% - 25vw);
+	margin-right: calc(25% - 25vw);
+	width: auto;
+	max-width: 1000%;
+}
+
 /*--------------------------------------------------------------
 # Clearings
 --------------------------------------------------------------*/
@@ -922,8 +929,9 @@ a:hover, a:active {
 
 .footer-sidebar {
 	display: flex;
-	flex-direction: row;
-	justify-content: space-between
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
 }
 
 .footer-sidebar a,
@@ -1155,7 +1163,6 @@ object {
 .wp-block-gallery,
 ul.wp-block-gallery {
 	padding-left: 0;
-	margin: 0 0 1.5em;
 }
 
 .gallery-item {
@@ -1564,13 +1571,6 @@ body.night-mode .author-info {
 		max-width: 760px;
 	}
 
-	.alignwide {
-		margin-left: calc(25% - 25vw);
-		margin-right: calc(25% - 25vw);
-		width: auto;
-		max-width: 1000%;
-	}
-
 	.alignwide img,
 	.alignfull img {
 		display: block;
@@ -1736,6 +1736,11 @@ body.night-mode .author-info {
 
 	.wp-block-pullquote {
 		padding: 1.5em 0.75em;
+	}
+
+	.footer-sidebar {
+		flex-direction: row;
+		align-items: start;
 	}
 
 }
