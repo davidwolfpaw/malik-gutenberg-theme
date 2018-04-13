@@ -211,7 +211,7 @@ input[type="submit"] {
 	-webkit-appearance: button;
 	cursor: pointer;
 	border: none;
-	margin-bottom: 1.5em;
+	margin-bottom: 2em;
 	text-align: center;
 }
 
@@ -297,7 +297,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p {
-	margin-bottom: 1.5em;
+	margin-bottom: 2em;
 }
 
 dfn, cite, em, i {
@@ -305,11 +305,11 @@ dfn, cite, em, i {
 }
 
 address {
-	margin: 0 0 1.5em;
+	margin: 0 0 2em;
 }
 
 pre {
-	background: #eee;
+	background: #efefef;
 	font-family: "Courier 10 Pitch", Courier, monospace;
 	font-size: 15px;
 	font-size: 0.9375rem;
@@ -329,6 +329,7 @@ code, kbd, tt, var {
 abbr, acronym {
 	border-bottom: 1px dotted #666;
 	cursor: help;
+	text-decoration: none;
 }
 
 mark, ins {
@@ -361,7 +362,7 @@ body {
 
 hr,
 hr.wp-block-separator {
-	margin-bottom: 1.5em;
+	margin-bottom: 2em;
 	background-color: transparent;
 	border-bottom: 3px solid #EF5656;
 	width: 75%;
@@ -369,7 +370,7 @@ hr.wp-block-separator {
 }
 
 ul, ol {
-	margin: 0 0 1.5em 3em;
+	margin: 0 0 2em 3em;
 }
 
 ul {
@@ -391,7 +392,7 @@ dt {
 }
 
 dd {
-	margin: 0 1.5em 1.5em;
+	margin: 0 1.5em 2em;
 }
 
 img {
@@ -405,7 +406,7 @@ figure {
 }
 
 table {
-	margin: 0 0 1.5em;
+	margin: 0 0 2em;
 	width: 100%;
 	border-collapse: collapse;
 	border-spacing: 0;
@@ -507,7 +508,7 @@ textarea {
 # Layout
 --------------------------------------------------------------*/
 .site-content {
-	margin-bottom: 1.5em;
+	margin-bottom: 2em;
 }
 
 #content {
@@ -873,7 +874,7 @@ a:hover, a:active {
 	width: 100vw;
 	max-width: 100vw;
 	overflow-x: hidden;
-	margin: 0 0 1.5em;
+	margin: 0 0 2em;
 }
 
 .alignwide {
@@ -948,7 +949,7 @@ a:hover, a:active {
 }
 
 .widget {
-	margin: 0 0 1.5em;
+	margin: 0 0 2em;
 }
 
 .widget select {
@@ -958,7 +959,7 @@ a:hover, a:active {
 
 .widget ul,
 .widget ol {
-    margin: 0 0 1.5em 0;
+    margin: 0 0 2em 0;
     padding-left: 1.5em;
 }
 
@@ -1036,7 +1037,7 @@ a:hover, a:active {
 
 .page-links {
 	clear: both;
-	margin: 0 0 1.5em;
+	margin: 0 0 2em;
 }
 
 .entry-header,
@@ -1046,7 +1047,7 @@ a:hover, a:active {
 .page-navigation,
 .comments-area,
 .footer-sidebar {
-	margin: 1.5em auto;
+	margin: 2em auto;
 	max-width: 800px;
 }
 
@@ -1138,7 +1139,7 @@ object {
 ## Captions
 --------------------------------------------------------------*/
 .wp-caption {
-	margin-bottom: 1.5em;
+	margin-bottom: 2em;
 	max-width: 100%;
 }
 
@@ -1212,7 +1213,7 @@ ul.wp-block-gallery {
 ## Gutenberg Blocks
 --------------------------------------------------------------*/
 .wp-block-cover-text p {
-  padding: 1.5em 20px;
+  padding: 2em 20px;
 }
 
 /* Dropcaps */
@@ -1226,7 +1227,7 @@ p.has-drop-cap:first-letter {
 
 /* Images */
 .wp-block-image {
-	margin-bottom: 1.5em;
+	margin-bottom: 2em;
 	text-align: center;
 }
 
@@ -1244,9 +1245,10 @@ p.has-drop-cap:first-letter {
 }
 
 /* Blockquotes*/
+q,
 blockquote,
 .wp-block-quote {
-	margin-bottom: 1.5em;
+	margin-bottom: 2em;
 	border-left: 4px solid #328cc1;
     padding-left: 1em;
     font-style: italic;
@@ -1264,7 +1266,7 @@ blockquote cite,
 	font-size: 18px;
 	font-size: 1.125rem;
 	font-style: italic;
-	margin-bottom: 1.5em;
+	margin-top: 1.5em;
 	width: 100%;
 }
 
@@ -1308,7 +1310,6 @@ blockquote.wp-block-quote.is-large cite {
 	font-weight: bold;
 	color: #808182;
 	opacity: 0.75;
-	margin: 1.5em 0 0 0;
 }
 
 .wp-block-pullquote.alignleft > p,
