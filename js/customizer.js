@@ -61,7 +61,7 @@
 	// Accent Text Color.
 	wp.customize( 'accent_text_color', function( value ) {
 		value.bind( function( to ) {
-			$( '.entry-footer, .wp-block-image figcaption, .wp-block-pullquote > cite, .wp-block-latest-posts__post-date' ).css( {
+			$( '.entry-footer, .wp-block-image figcaption, .wp-block-pullquote > cite, .wp-block-latest-posts__post-date, .wp-caption-text' ).css( {
 				'color': to
 			} );
 		} );

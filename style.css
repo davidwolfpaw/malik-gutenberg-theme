@@ -294,10 +294,12 @@ h1, h2, h3, h4, h5, h6 {
 	font-family: 'Playfair Display', Cambria, 'Hoefler Text', Utopia, 'Liberation Serif', 'Nimbus Roman No9 L Regular', Times, 'Times New Roman', serif;
 	margin: 0 0 0.5em 0;
 	line-height: 1.25;
+	word-wrap: break-word;
 }
 
 p {
 	margin-bottom: 2em;
+	word-wrap: break-word;`
 }
 
 dfn, cite, em, i {
@@ -379,6 +381,10 @@ ul {
 
 ol {
 	list-style: decimal;
+}
+
+li {
+	margin-bottom: 0.25em;
 }
 
 li > ul,
@@ -826,30 +832,30 @@ a:hover, a:active {
 	max-width: 700px !important;	/* Let's work to make this !important unnecessary */
 }
 
-.alignleft img,
-.alignright img,
 .alignleft figcaption,
-.alignright figcaption {
-	max-width: 50%;
-	width: 50%;
-}
-
-.alignleft figcaption {
+figure.alignleft {
 	clear: left;
 	float: left;
+	margin-right: 1.5em;
 }
 
-.alignright figcaption {
+.alignright figcaption,
+figure.alignright {
 	clear: right;
 	float: right;
+	margin-left: 1.5em;
 }
 
-.alignleft img {
+img.alignleft,
+.alignleft img,
+.wp-caption.alignleft img[class*="wp-image-"] {
   float: left;
   margin-right: 1.5em;
 }
 
-.alignright img {
+img.alignright,
+.alignright img,
+.wp-caption.alignright img[class*="alignright wp-image-"] {
   float: right;
   margin-left: 1.5em;
 }
@@ -1081,9 +1087,11 @@ a:hover, a:active {
 /*--------------------------------------------------------------
 ## Comments
 --------------------------------------------------------------*/
-.comment-list {
+.comment-list,
+.comment-list .children {
 	margin-left: 0;
 	padding-left: 0;
+	list-style: none;
 }
 
 .comment {
@@ -1139,7 +1147,7 @@ object {
 ## Captions
 --------------------------------------------------------------*/
 .wp-caption {
-	margin-bottom: 2em;
+	margin-bottom: 1.5em;
 	max-width: 100%;
 }
 
@@ -1160,7 +1168,7 @@ object {
 /*--------------------------------------------------------------
 ## Galleries
 --------------------------------------------------------------*/
-.gallery
+.gallery,
 .wp-block-gallery,
 ul.wp-block-gallery {
 	padding-left: 0;
@@ -1171,6 +1179,10 @@ ul.wp-block-gallery {
 	text-align: center;
 	vertical-align: top;
 	width: 100%;
+}
+
+.gallery-item a {
+	display: block;
 }
 
 .gallery-columns-2 .gallery-item {
