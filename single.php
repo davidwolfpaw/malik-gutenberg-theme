@@ -23,11 +23,11 @@ get_header(); ?>
 			?>
 				<div class="author-info">
 					<div class="author-image">
-						<?php echo get_avatar( get_the_author_meta( 'ID' ), 96,'mysteryman', get_the_author_meta( 'display_name' ) ); ?>
+						<?php echo get_avatar( get_the_author_meta( 'ID' ), 96, 'mysteryman', get_the_author_meta( 'display_name' ) ); ?>
 					</div>
 					<div class="author-description">
-						<h4><?php echo get_the_author_meta( 'display_name' ); ?></h4>
-						<p><?php echo get_the_author_meta( 'user_description' ); ?></p>
+						<h4><?php echo esc_html( get_the_author_meta( 'display_name' ) ); ?></h4>
+						<p><?php echo esc_html( get_the_author_meta( 'user_description' ) ); ?></p>
 					</div>
 				</div><!-- .author-info -->
 			<?php

@@ -16,7 +16,7 @@ function malik_body_classes( $classes ) {
 	if ( ! is_singular() ) {
 		$classes[] = 'hfeed';
 	}
-	// Adds a class of header-side if that option is active
+	// Adds a class of header-side if that option is active.
 	if ( 'side' === get_theme_mod( 'header_location' ) ) {
 		$classes[] = 'header-side';
 	}
@@ -98,7 +98,7 @@ function malik_human_time_diff( $older_date, $newer_date = false, $relative_dept
 	while ( count( $date_partials ) < $relative_depth && $i < count( $units ) ) {
 		$seconds = $units[ $i ][0];
 		if ( ( $count = floor( ( $since - $counted_seconds ) / $seconds ) ) != 0 ) {
-			$date_partials[] = sprintf( translate_nooped_plural( $units[ $i ][1], $count, 'malik' ), $count );
+			$date_partials[]  = sprintf( translate_nooped_plural( $units[ $i ][1], $count, 'malik' ), $count );
 			$counted_seconds += $count * $seconds;
 		}
 		$i++;
@@ -106,7 +106,7 @@ function malik_human_time_diff( $older_date, $newer_date = false, $relative_dept
 
 	if ( empty( $date_partials ) ) {
 		$output = '';
-	} elseif ( 1 == count( $date_partials ) ) {
+	} elseif ( 1 === count( $date_partials ) ) {
 		$output = $date_partials[0];
 	} else {
 
