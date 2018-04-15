@@ -12,82 +12,81 @@
  */
 function malik_customize_register( $wp_customize ) {
 	// Change some setting defaults.
-	$wp_customize->get_setting( 'blogname' )->transport            = 'postMessage';
-	$wp_customize->get_setting( 'blogdescription' )->transport     = 'postMessage';
-	$wp_customize->get_setting( 'header_textcolor' )->transport    = 'postMessage';
-	$wp_customize->get_setting( 'header_textcolor' )->default      = '#1D2731';
-	$wp_customize->get_setting( 'background_color' )->transport    = 'postMessage';
-	$wp_customize->get_setting( 'background_color' )->default      = '#FFFFFF';
+	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
+	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
+	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
+	$wp_customize->get_setting( 'header_textcolor' )->default   = '#1D2731';
+	$wp_customize->get_setting( 'background_color' )->transport = 'postMessage';
+	$wp_customize->get_setting( 'background_color' )->default   = '#FFFFFF';
 
 	$wp_customize->remove_section( 'custom-header' );
 
-    // Text color
-    $wp_customize->add_setting( 'text_color', array(
-      'default'   => '#1D2731',
-      'transport' => 'postMessage',
-    ) );
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'text_color', array(
-      'section' => 'colors',
-      'label'   => esc_html__( 'Text Color', 'malik' ),
-    ) ) );
+	// Text color.
+	$wp_customize->add_setting( 'text_color', array(
+		'default'   => '#1D2731',
+		'transport' => 'postMessage',
+	) );
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'text_color', array(
+		'section' => 'colors',
+		'label'   => esc_html__( 'Text Color', 'malik' ),
+	) ) );
 
-    // Accent Text color
-    $wp_customize->add_setting( 'accent_text_color', array(
-      'default'   => '#808182',
-      'transport' => 'postMessage',
-    ) );
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'accent_text_color', array(
-      'section' => 'colors',
-      'label'   => esc_html__( 'Accent Text Color', 'malik' ),
-    ) ) );
+	// Accent Text color.
+	$wp_customize->add_setting( 'accent_text_color', array(
+		'default'   => '#808182',
+		'transport' => 'postMessage',
+	) );
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'accent_text_color', array(
+		'section' => 'colors',
+		'label'   => esc_html__( 'Accent Text Color', 'malik' ),
+	) ) );
 
-    // Accent color
-    $wp_customize->add_setting( 'accent_color', array(
-      'default'   => '#EF5656',
-      'transport' => 'postMessage',
-    ) );
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'accent_color', array(
-      'section' => 'colors',
-      'label'   => esc_html__( 'Accent Color', 'malik' ),
-    ) ) );
+	// Accent color.
+	$wp_customize->add_setting( 'accent_color', array(
+		'default'   => '#EF5656',
+		'transport' => 'postMessage',
+	) );
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'accent_color', array(
+		'section' => 'colors',
+		'label'   => esc_html__( 'Accent Color', 'malik' ),
+	) ) );
 
-    // Header & Footer color
-    $wp_customize->add_setting( 'header_footer_color', array(
-      'default'   => '#0B3C5D',
-      'transport' => 'postMessage',
-    ) );
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header_footer_color', array(
-      'section' => 'colors',
-      'label'   => esc_html__( 'Header Menu & Footer Color', 'malik' ),
-    ) ) );
+	// Header & Footer color.
+	$wp_customize->add_setting( 'header_footer_color', array(
+		'default'   => '#0B3C5D',
+		'transport' => 'postMessage',
+	) );
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header_footer_color', array(
+		'section' => 'colors',
+		'label'   => esc_html__( 'Header Menu & Footer Color', 'malik' ),
+	) ) );
 
-    // Link Color
-    $wp_customize->add_setting( 'link_color', array(
-      'default'   => '#328CC1',
-      'transport' => 'postMessage',
-    ) );
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'link_color', array(
-      'section' => 'colors',
-      'label'   => esc_html__( 'Link Color', 'malik' ),
-    ) ) );
+	// Link Color.
+	$wp_customize->add_setting( 'link_color', array(
+		'default'   => '#328CC1',
+		'transport' => 'postMessage',
+	) );
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'link_color', array(
+		'section' => 'colors',
+		'label'   => esc_html__( 'Link Color', 'malik' ),
+	) ) );
 
-    // Link Active/Hover/Focus Color
-    $wp_customize->add_setting( 'link_active_color', array(
-      'default'   => '#0B3C5D',
-      'transport' => 'postMessage',
-    ) );
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'link_active_color', array(
-      'section' => 'colors',
-      'label'   => esc_html__( 'Link Active/Hover/Focus Color', 'malik' ),
-    ) ) );
-
+	// Link Active/Hover/Focus Color.
+	$wp_customize->add_setting( 'link_active_color', array(
+		'default'   => '#0B3C5D',
+		'transport' => 'postMessage',
+	) );
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'link_active_color', array(
+		'section' => 'colors',
+		'label'   => esc_html__( 'Link Active/Hover/Focus Color', 'malik' ),
+	) ) );
 
 	// Section: Malik Options.
 	$wp_customize->add_section( 'malik_theme_settings', array(
-		'priority'       => 40,
-		'title'          => __( 'Malik Theme Settings', 'malik' ),
-		'description'    => __( 'Settings specific to the Malik theme.', 'malik' ),
-		'capability'     => 'edit_theme_options',
+		'priority'    => 40,
+		'title'       => __( 'Malik Theme Settings', 'malik' ),
+		'description' => __( 'Settings specific to the Malik theme.', 'malik' ),
+		'capability'  => 'edit_theme_options',
 	) );
 
 	// Setting: Header Location.
@@ -158,12 +157,12 @@ function malik_customize_register( $wp_customize ) {
 		'section'     => 'malik_theme_settings',
 		'type'        => 'select',
 		'choices'     => array(
-			'playfair_lato'  => 'Playfair Display / Lato',
-			'opensans_gentiumbasic' => 'Open Sans / Gentium Basic',
-			'archivoblack_tenorsans' => 'Archivo Black / Tenor Sans',
-			'rubik_robotomono' => 'Rubik / Roboto Mono',
-			'ovo_muli' => 'Ovo / Muli',
-			'opensanscondensed_lora' => 'Open Sans Condensed / Lora',
+			'playfair_lato'             => 'Playfair Display / Lato',
+			'opensans_gentiumbasic'     => 'Open Sans / Gentium Basic',
+			'archivoblack_tenorsans'    => 'Archivo Black / Tenor Sans',
+			'rubik_robotomono'          => 'Rubik / Roboto Mono',
+			'ovo_muli'                  => 'Ovo / Muli',
+			'opensanscondensed_lora'    => 'Open Sans Condensed / Lora',
 			'nixieone_librebaskerville' => 'Nixie One / Libre Baskerville',
 		),
 		'settings'    => 'font_pairing',
@@ -237,6 +236,39 @@ function malik_customize_register( $wp_customize ) {
 		'settings'    => 'author_info',
 	) );
 
+	// Setting: Post Meta Header.
+	$wp_customize->add_setting( 'post_meta_header', array(
+		'default'           => 'Posted on [post_date]',
+		'sanitize_callback' => 'esc_textarea',
+		'transport'         => 'refresh',
+		'capability'        => 'edit_theme_options',
+	) );
+
+	// Control: Post Meta Header.
+	$wp_customize->add_control( 'post_meta_header_control', array(
+		'label'       => __( 'Post Meta Header', 'malik' ),
+		'description' => __( 'Post meta that displays before the post content.', 'malik' ),
+		'section'     => 'malik_theme_settings',
+		'type'        => 'text',
+		'settings'    => 'post_meta_header',
+	) );
+
+	// Setting: Post Meta Footer.
+	$wp_customize->add_setting( 'post_meta_footer', array(
+		'default'           => '[post_categories] [post_tags]',
+		'sanitize_callback' => 'esc_textarea',
+		'transport'         => 'refresh',
+		'capability'        => 'edit_theme_options',
+	) );
+
+	// Control: Post Meta Footer.
+	$wp_customize->add_control( 'post_meta_footer_control', array(
+		'label'       => __( 'Post Meta Footer', 'malik' ),
+		'description' => __( 'Post meta that displays after the post content.', 'malik' ),
+		'section'     => 'malik_theme_settings',
+		'type'        => 'text',
+		'settings'    => 'post_meta_footer',
+	) );
 
 	if ( isset( $wp_customize->selective_refresh ) ) {
 		$wp_customize->selective_refresh->add_partial( 'blogname', array(
@@ -254,6 +286,8 @@ add_action( 'customize_register', 'malik_customize_register' );
 
 /**
  * Sanitize checkbox callbacks
+ *
+ * @param bool $checked whether it is checked or not.
  *
  * @return checked
  */
@@ -292,10 +326,10 @@ add_action( 'customize_preview_init', 'malik_customize_preview_js' );
  * Apply customizer colors
  */
 function malik_customizer_css() {
-    ?>
-    <style type="text/css">
+	?>
+	<style type="text/css">
 		.site-header-top, #secondary.primary-sidebar { background-color: #<?php echo get_theme_mod( 'background_color' ); ?>; }
-        body, button, input, select, optgroup, textarea, h1, h2, h3, h4, h5, h6, .wp-block-pullquote { color: <?php echo get_theme_mod( 'text_color' ); ?>; }
+		body, button, input, select, optgroup, textarea, h1, h2, h3, h4, h5, h6, .wp-block-pullquote { color: <?php echo get_theme_mod( 'text_color' ); ?>; }
 		.entry-footer, .wp-block-image figcaption, .wp-block-pullquote > cite, .wp-block-latest-posts__post-date, .wp-caption-text { color: <?php echo get_theme_mod( 'accent_text_color' ); ?>; }
 		.wp-block-button .wp-block-button__link {	background-color: <?php echo get_theme_mod( 'link_color' ); ?>; }
 		.wp-block-button .wp-block-button__link:hover, .wp-block-button .wp-block-button__link:active, .wp-block-button .wp-block-button__link:focus {	background-color: <?php echo get_theme_mod( 'link_active_color' ); ?>; }
@@ -305,7 +339,7 @@ function malik_customizer_css() {
 		.wp-block-quote:not(.is-large) { border-left-color: <?php echo get_theme_mod( 'link_color' ); ?>; }
 		a, a:visited { color: <?php echo get_theme_mod( 'link_color' ); ?>; }
 		a:hover, a:focus, a:active { color: <?php echo get_theme_mod( 'link_active_color' ); ?>; }
-    </style>
-    <?php
+	</style>
+	<?php
 }
 add_action( 'wp_head', 'malik_customizer_css' );

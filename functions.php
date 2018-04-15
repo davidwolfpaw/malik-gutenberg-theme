@@ -76,7 +76,7 @@ if ( ! function_exists( 'malik_setup' ) ) :
 		/**
 		 * Add support for Gutenberg wide images.
 		 */
-		 remove_theme_support( 'custom-header' );
+		remove_theme_support( 'custom-header' );
 
 		/**
 		 * Add support for Gutenberg.
@@ -84,15 +84,15 @@ if ( ! function_exists( 'malik_setup' ) ) :
 		 * @link https://wordpress.org/gutenberg/
 		 */
 		add_theme_support( 'gutenberg', array(
-		   'wide-images' => true,
-		   'colors'      => array(
+			'wide-images' => true,
+			'colors'      => array(
 				'#1D2731',
 				'#0B3C5D',
 				'#328CC1',
 				'#D6BB53',
 				'#808182',
 				'#EF5656',
-		   )
+			),
 		) );
 
 		/**
@@ -131,15 +131,6 @@ function malik_widgets_init() {
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
-	// register_sidebar( array(
-	// 	'name'          => esc_html__( 'Primary Sidebar', 'malik' ),
-	// 	'id'            => 'primary-sidebar',
-	// 	'description'   => esc_html__( 'Add widgets here.', 'malik' ),
-	// 	'before_widget' => '<section id="%1$s" class="widget %2$s">',
-	// 	'after_widget'  => '</section>',
-	// 	'before_title'  => '<h2 class="widget-title">',
-	// 	'after_title'   => '</h2>',
-	// ) );
 	register_sidebar( array(
 		'name'          => esc_html__( 'Footer', 'malik' ),
 		'id'            => 'footer',
@@ -157,14 +148,15 @@ add_action( 'widgets_init', 'malik_widgets_init' );
  */
 function malik_fonts_url() {
 	$fonts_url = '';
-	/* Translators: If there are characters in your language that are not
+	/**
+	* Translators: If there are characters in your language that are not
 	* supported by Google Fonts, translate this to 'off'. Do not translate
 	* into your own language.
 	*/
 	$font = _x( 'on', 'Theme Google Fonts: on or off', 'malik' );
 	if ( 'off' !== $font ) {
 		$font_families = array();
-		// Get the selected theme fonts or default to Playfair and Lato
+		// Get the selected theme fonts or default to Playfair and Lato.
 		$font_selection = get_theme_mod( 'font_pairing', 'playfair_lato' );
 		if ( 'playfair_lato' === $font_selection ) {
 			$font_families[] = 'Playfair Display:400,700';
@@ -192,10 +184,10 @@ function malik_fonts_url() {
 			$font_families[] = 'Lato:400,400i,700';
 		}
 		$query_args = array(
-			'family' => urlencode( implode( '|', $font_families ) ),
-			'subset' => urlencode( 'latin,latin-ext' ),
+			'family' => rawurlencode( implode( '|', $font_families ) ),
+			'subset' => rawurlencode( 'latin,latin-ext' ),
 		);
-		$fonts_url = add_query_arg( $query_args, 'https://fonts.googleapis.com/css' );
+		$fonts_url  = add_query_arg( $query_args, 'https://fonts.googleapis.com/css' );
 	}
 	return esc_url_raw( $fonts_url );
 }
@@ -207,7 +199,7 @@ function malik_editor_styles() {
 	// Fonts.
 	wp_enqueue_style( 'malik-fonts', malik_fonts_url(), array(), null );
 	// Editor styles.
-	wp_enqueue_style( 'malik-editor-style', get_template_directory_uri() . '/css/editor-style.css');
+	wp_enqueue_style( 'malik-editor-style', get_template_directory_uri() . '/css/editor-style.css' );
 }
 add_action( 'enqueue_block_editor_assets', 'malik_editor_styles' );
 
@@ -219,7 +211,7 @@ function malik_scripts() {
 	wp_enqueue_style( 'malik-fonts', malik_fonts_url(), array(), null );
 
 	// Font Awesome http://fontawesome.com.
-    wp_enqueue_script( 'fontawesome5', get_stylesheet_directory_uri() . '/js/fontawesome-all.min.js', array(), '5.0.9', false );
+	wp_enqueue_script( 'fontawesome5', get_stylesheet_directory_uri() . '/js/fontawesome-all.min.js', array(), '5.0.9', false );
 
 	// Primary Styles.
 	wp_enqueue_style( 'malik-style', get_stylesheet_uri(), array( 'malik-fonts' ) );
@@ -247,29 +239,37 @@ function malik_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'malik_scripts' );
 
-// setup FontAwesome 5 SVGs for use
+// setup FontAwesome 5 SVGs for use.
 add_action( 'wp_head', function() {
-    echo '<script>FontAwesomeConfig = { searchPseudoElements: true };</script>';
+	echo '<script>FontAwesomeConfig = { searchPseudoElements: true };</script>';
 }, 1 );
 
 
-// defer loading of scripts
-function malik_defer_scripts( $tag, $handle, $src ) {
+/**
+ * Defer loading of scripts.
+ *
+ * @param string $tag The tag of the source for the script.
+ * @param string $handle The handle of the script to check.
+ *
+ * @return string $tag The call to the script.
+ */
+function malik_defer_scripts( $tag, $handle ) {
 
-    // The handles of the enqueued scripts we want to defer
-    $defer_scripts = array(
-        // 'malik-scripts',
-        'comment-reply',
-        'fontawesome5',
-    );
+	// The handles of the enqueued scripts we want to defer.
+	$defer_scripts = array(
+		'comment-reply',
+		'fontawesome5',
+	);
 
-    if ( in_array( $handle, $defer_scripts ) ) {
-        return '<script src="' . $src . '" defer="defer" type="text/javascript"></script>' . "\n";
-    }
+	foreach ( $defer_scripts as $defer_script ) {
+		if ( $handle === $defer_script ) {
+			return str_replace( ' src', ' defer="defer" src', $tag );
+		}
+	}
 
-    return $tag;
+	return $tag;
 }
-add_filter( 'script_loader_tag', 'malik_defer_scripts', 10, 3 );
+add_filter( 'script_loader_tag', 'malik_defer_scripts', 10, 2 );
 
 /**
  * Implement the Custom Header feature.
@@ -285,6 +285,12 @@ require get_template_directory() . '/inc/template-tags.php';
  * Functions which enhance the theme by hooking into WordPress.
  */
 require get_template_directory() . '/inc/template-functions.php';
+
+
+/**
+ * Shortcodes included in the theme.
+ */
+require get_template_directory() . '/inc/template-shortcodes.php';
 
 /**
  * Customizer additions.

@@ -24,8 +24,13 @@
 			if ( 'post' === get_post_type() ) :
 			?>
 			<div class="entry-meta">
-				<?php malik_posted_on(); ?>
-				<?php malik_categories(); ?>
+				<?php
+				if ( get_theme_mod( 'post_meta_header' ) ) {
+					echo do_shortcode( get_theme_mod( 'post_meta_header' ) );
+				} else {
+					echo do_shortcode( 'Posted on [post_date]' );
+				}
+				?>
 			</div><!-- .entry-meta -->
 			<?php
 			endif;
