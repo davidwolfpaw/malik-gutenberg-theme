@@ -22,7 +22,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 */
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
-----------------------------------------------------------------
+-----------------------------------------------------g-----------
 # Normalize
 # Typography
 # Elements
@@ -991,6 +991,7 @@ img.alignright,
 	margin-bottom: 0;
 	flex: 1 0 auto;
 	max-width: 200px;
+	word-break: break-word;
 }
 
 .footer-sidebar .widget-title {
