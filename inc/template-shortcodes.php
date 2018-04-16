@@ -31,20 +31,20 @@ if ( ! function_exists( 'malik_post_date_shortcode' ) ) :
 			'before'         => '',
 			'format'         => get_option( 'date_format' ),
 			'label'          => '',
-			'modified'       => false,
+			'modified'       => 'false',
 			'relative_depth' => 2,
 		);
 
 		$atts = shortcode_atts( $defaults, $atts, 'post_date' );
 
 		// If we're getting the modified date or the original post date.
-		if ( true === $atts['modified'] ) {
+		if ( 'true' === $atts['modified'] ) {
 
 			if ( 'relative' === $atts['format'] ) {
 				$display  = malik_human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ), $atts['relative_depth'] );
 				$display .= ' ' . __( 'ago', 'malik' );
 			} else {
-				$display = get_the_time( $atts['format'] );
+				$display = get_the_modified_time( $atts['format'] );
 			}
 
 			$output = sprintf( '<time itemprop="dateModified" datetime="%s">', get_the_modified_time( 'c' ) ) . $atts['before'] . $atts['label'] . $display . $atts['after'] . '</time>';
@@ -55,7 +55,7 @@ if ( ! function_exists( 'malik_post_date_shortcode' ) ) :
 				$display  = malik_human_time_diff( get_the_modified_time( 'U' ), current_time( 'timestamp' ), $atts['relative_depth'] );
 				$display .= ' ' . __( 'ago', 'malik' );
 			} else {
-				$display = get_the_modified_time( $atts['format'] );
+				$display = get_the_time( $atts['format'] );
 			}
 
 			$output = sprintf( '<time itemprop="datePublished" datetime="%s">', get_the_time( 'c' ) ) . $atts['before'] . $atts['label'] . $display . $atts['after'] . '</time>';
@@ -146,7 +146,9 @@ if ( ! function_exists( 'malik_post_modified_date_shortcode' ) ) :
 
 		$atts = shortcode_atts( $defaults, $atts, 'post_author_link' );
 
-		$author = get_the_author();
+		$author         = get_the_author();
+		$author_url     = get_the_author_meta( 'user_url', get_the_author_meta( 'ID' ) );
+		$author_archive = get_author_posts_url( get_the_author_meta( 'ID' ) );
 
 		if ( ! $author ) {
 			return '';
@@ -154,12 +156,10 @@ if ( ! function_exists( 'malik_post_modified_date_shortcode' ) ) :
 
 		$output  = '<span itemprop="author" itemscope="true" itemtype="https://schema.org/Person">';
 		$output .= $atts['before'];
-		if ( 'author' === $atts['url'] ) {
-			$url     = get_the_author_meta( 'url' );
-			$output .= sprintf( '<a href="%s" itemprop="url" rel="author"><span itemprop="name">%s</span></a>', $url, esc_html( $author ) );
-		} elseif ( 'archive' === $atts['url'] ) {
-			$url     = get_author_posts_url( get_the_author_meta( 'ID' ) );
-			$output .= sprintf( '<a href="%s" itemprop="url" rel="author"><span itemprop="name">%s</span></a>', $url, esc_html( $author ) );
+		if ( 'author' === $atts['url'] && ! empty( $author_url ) ) {
+			$output .= sprintf( '<a href="%s" itemprop="url" rel="author"><span itemprop="name">%s</span></a>', $author_url, esc_html( $author ) );
+		} elseif ( 'archive' === $atts['url'] && ! empty( $author_archive ) ) {
+			$output .= sprintf( '<a href="%s" itemprop="url" rel="author"><span itemprop="name">%s</span></a>', $author_archive, esc_html( $author ) );
 		} elseif ( 'none' === $atts['url'] ) {
 			$output .= sprintf( '<span itemprop="name">%s</span>', esc_html( $author ) );
 		} else {
@@ -208,9 +208,10 @@ if ( ! function_exists( 'malik_post_comments_shortcode' ) ) :
 			'one'         => __( '1 Comment', 'malik' ),
 			'zero'        => __( 'Leave a Comment', 'malik' ),
 		);
-		$atts     = shortcode_atts( $defaults, $atts, 'post_comments' );
 
-		if ( true === $atts['hide_if_off'] || ! comments_open() ) {
+		$atts = shortcode_atts( $defaults, $atts, 'post_comments' );
+
+		if ( true === $atts['hide_if_off'] && ! comments_open() ) {
 			return '';
 		}
 

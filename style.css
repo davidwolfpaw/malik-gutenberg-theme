@@ -213,6 +213,9 @@ input[type="submit"] {
 	border: none;
 	margin-bottom: 2em;
 	text-align: center;
+	-webkit-transition: background-color 0.25s;
+	-moz-transition: background-color 0.25s;
+	transition: background-color 0.25s;
 }
 
 button[disabled],
@@ -1046,6 +1049,7 @@ img.alignright,
 	margin: 0 0 2em;
 }
 
+.page-header,
 .entry-header,
 .entry-footer,
 .site-info,
@@ -1061,9 +1065,13 @@ img.alignright,
 	margin-right: 1em;
 }
 
-.entry-footer {
+.entry-footer,
+.entry-meta {
 	color: #aaa;
 	font-size: 90%;
+}
+
+.entry-footer {
 	padding-bottom:40px;
 	border-bottom: 1px solid #1D2731;
 }
@@ -1543,6 +1551,7 @@ body.night-mode .author-info {
 
 @media screen and (min-width: 768px) {
 
+	.page-header,
 	.entry-header,
 	.entry-content,
 	.entry-summary,

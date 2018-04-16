@@ -27,8 +27,6 @@
 				<?php
 				if ( get_theme_mod( 'post_meta_header' ) ) {
 					echo do_shortcode( get_theme_mod( 'post_meta_header' ) );
-				} else {
-					echo do_shortcode( 'Posted on [post_date]' );
 				}
 				?>
 			</div><!-- .entry-meta -->
@@ -61,6 +59,10 @@
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
-		<?php malik_entry_footer(); ?>
+		<?php
+		if ( get_theme_mod( 'post_meta_footer' ) ) {
+			echo do_shortcode( get_theme_mod( 'post_meta_footer' ) );
+		}
+		?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->
