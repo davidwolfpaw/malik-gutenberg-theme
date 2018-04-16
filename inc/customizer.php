@@ -306,12 +306,12 @@ add_action( 'customize_register', 'malik_customize_register' );
 function malik_post_meta_shortcode_message() {
 
 	$message  = '<ul>';
-	$message .= '<li><strong>[post_date]</strong> - Displays the posted or modified date of the post</li>';
-	$message .= '<li><strong>[post_time]</strong> - Displays the posted or modified time of the post</li>';
-	$message .= '<li><strong>[post_author]</strong> - Displays the author of the post</li>';
-	$message .= '<li><strong>[post_comments]</strong> - Displays the number of comments and link to leave a comment</li>';
-	$message .= '<li><strong>[post_tags]</strong> - Displays all tags of the post</li>';
-	$message .= '<li><strong>[post_categories]</strong> - Displays all categories of the post</li>';
+	$message .= __( '<li><strong>[post_date]</strong> - Displays the posted or modified date of the post</li>', 'malik' );
+	$message .= __( '<li><strong>[post_time]</strong> - Displays the posted or modified time of the post</li>', 'malik' );
+	$message .= __( '<li><strong>[post_author]</strong> - Displays the author of the post</li>', 'malik' );
+	$message .= __( '<li><strong>[post_comments]</strong> - Displays the number of comments and link to leave a comment</li>', 'malik' );
+	$message .= __( '<li><strong>[post_tags]</strong> - Displays all tags of the post</li>', 'malik' );
+	$message .= __( '<li><strong>[post_categories]</strong> - Displays all categories of the post</li>', 'malik' );
 	$message .= '</ul>';
 
 	return $message;
