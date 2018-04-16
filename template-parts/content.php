@@ -24,11 +24,7 @@
 			if ( 'post' === get_post_type() ) :
 			?>
 			<div class="entry-meta">
-				<?php
-				if ( get_theme_mod( 'post_meta_header' ) ) {
-					echo do_shortcode( get_theme_mod( 'post_meta_header' ) );
-				}
-				?>
+				<?php echo do_shortcode( get_theme_mod( 'post_meta_header', 'Posted on [post_date]' ) ); ?>
 			</div><!-- .entry-meta -->
 			<?php
 			endif;
@@ -59,10 +55,6 @@
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
-		<?php
-		if ( get_theme_mod( 'post_meta_footer' ) ) {
-			echo do_shortcode( get_theme_mod( 'post_meta_footer' ) );
-		}
-		?>
+		<?php echo do_shortcode( get_theme_mod( 'post_meta_footer', '[post_categories] [post_tags]' ) ); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->

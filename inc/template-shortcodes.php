@@ -16,7 +16,6 @@ if ( ! function_exists( 'malik_post_date_shortcode' ) ) :
 	 *   after (output after link, default is empty string),
 	 *   before (output before link, default is empty string),
 	 *   format (date format, default is value in date_format option field),
-	 *   label (text following 'before' output, but before date),
 	 *   modified (whether getting original or modified post date, defaults to false).
 	 *
 	 * Output passes through `malik_post_date_shortcode` filter before returning.
@@ -30,7 +29,6 @@ if ( ! function_exists( 'malik_post_date_shortcode' ) ) :
 			'after'          => '',
 			'before'         => '',
 			'format'         => get_option( 'date_format' ),
-			'label'          => '',
 			'modified'       => 'false',
 			'relative_depth' => 2,
 		);
@@ -47,7 +45,7 @@ if ( ! function_exists( 'malik_post_date_shortcode' ) ) :
 				$display = get_the_modified_time( $atts['format'] );
 			}
 
-			$output = sprintf( '<time itemprop="dateModified" datetime="%s">', get_the_modified_time( 'c' ) ) . $atts['before'] . $atts['label'] . $display . $atts['after'] . '</time>';
+			$output = sprintf( '<time itemprop="dateModified" datetime="%s">', get_the_modified_time( 'c' ) ) . $atts['before'] . $display . $atts['after'] . '</time>';
 
 		} else {
 
@@ -58,7 +56,7 @@ if ( ! function_exists( 'malik_post_date_shortcode' ) ) :
 				$display = get_the_time( $atts['format'] );
 			}
 
-			$output = sprintf( '<time itemprop="datePublished" datetime="%s">', get_the_time( 'c' ) ) . $atts['before'] . $atts['label'] . $display . $atts['after'] . '</time>';
+			$output = sprintf( '<time itemprop="datePublished" datetime="%s">', get_the_time( 'c' ) ) . $atts['before'] . $display . $atts['after'] . '</time>';
 
 		}
 
@@ -77,7 +75,6 @@ if ( ! function_exists( 'malik_post_time_shortcode' ) ) :
 	 *   after (output after link, default is empty string),
 	 *   before (output before link, default is empty string),
 	 *   format (date format, default is value in date_format option field),
-	 *   label (text following 'before' output, but before date),
 	 *   modified (whether getting original or modified post time, defaults to false).
 	 *
 	 * Output passes through `malik_post_time_shortcode` filter before returning.
@@ -91,7 +88,6 @@ if ( ! function_exists( 'malik_post_time_shortcode' ) ) :
 			'after'    => '',
 			'before'   => '',
 			'format'   => get_option( 'time_format' ),
-			'label'    => '',
 			'modified' => false,
 		);
 
@@ -99,11 +95,11 @@ if ( ! function_exists( 'malik_post_time_shortcode' ) ) :
 
 		if ( true === $atts['modified'] ) {
 
-			$output = sprintf( '<time itemprop="dateModified" datetime="%s">', get_the_modified_time( 'c' ) ) . $atts['before'] . $atts['label'] . get_the_modified_time( $atts['format'] ) . $atts['after'] . '</time>';
+			$output = sprintf( '<time itemprop="dateModified" datetime="%s">', get_the_modified_time( 'c' ) ) . $atts['before'] . get_the_modified_time( $atts['format'] ) . $atts['after'] . '</time>';
 
 		} else {
 
-			$output = sprintf( '<time itemprop="datePublished" datetime="%s">', get_the_time( 'c' ) ) . $atts['before'] . $atts['label'] . get_the_time( $atts['format'] ) . $atts['after'] . '</time>';
+			$output = sprintf( '<time itemprop="datePublished" datetime="%s">', get_the_time( 'c' ) ) . $atts['before'] . get_the_time( $atts['format'] ) . $atts['after'] . '</time>';
 
 		}
 
@@ -299,7 +295,7 @@ if ( ! function_exists( 'malik_post_categories_shortcode' ) ) :
 
 		$defaults = array(
 			'sep'    => ', ',
-			'before' => __( 'Filed: ', 'malik' ),
+			'before' => __( 'Categories: ', 'malik' ),
 			'after'  => '',
 		);
 

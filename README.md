@@ -27,6 +27,8 @@ I have several features ready to go to make your site unique to you. Just by usi
     - Read Time - Display an estimate for how long an article will take to read
     - Article Progression Bar - Show a progression bar for how far you've scrolled in an article
     - Author Info - Choose whether to display the author picture, display name, and description at the bottom of articles
+    - Post Meta Header - Display info such as author URL, comments, tags, categories, post time, and post date via shortcodes before articles
+    - Post Meta Footer - Display info such as author URL, comments, tags, categories, post time, and post date via shortcodes after articles
 
 ### Night Mode
 ![Night Mode Animation](screenshots/night-mode.gif)

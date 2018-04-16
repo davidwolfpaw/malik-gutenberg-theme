@@ -1,38 +1,41 @@
-=== Malik ===
+# Malik Theme - A Mobile-First, Gutenberg Ready Theme
 
-Contributors: davidjlaietta
-Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+## Howdy
 
-Requires at least: 4.0
-Tested up to: 4.9.4
-Stable tag: 1.0.0
-License: GNU General Public License v3 or later
-License URI: LICENSE
+Hello there! I'm a WordPress theme based on the _s starter theme and turned into a theme for bloggers. I'm responsive and mobile first, and I was born to be friendly to the Gutenberg editor!
 
-A theme called Malik.
+I was named for [Om Malik](https://om.co/), a longtime user and friend of WordPress.
 
-== Description ==
+## Features
 
-A Gutenberg-Ready theme based on Malik for writers.
+I have several features ready to go to make your site unique to you. Just by using the WordPress Customizer you have access to the following:
 
-== Installation ==
+* Colors
+    -  Background Color
+    -  Text Color
+    -  Accent Text Color _(things like captions, citations, post meta, and entry footers)_
+    -  Accent Color _(things like thematic breaks, block separators, buttons, and navigation and quote borders)_
+    - Header Menu & Footer Color _(for the background of those sections)_
+    - Link Color _(also progression bar color)_
+    - Link Active/Hover/Focus Color
+* Theme Settings
+    - Header Location - You can choose to keep my head on top, or put it to the side. It won't bother me!
+    - Hide Header on Scroll - Make my header info disappear on scroll
+    - Hide Header Menu on Scroll - Ditto for the header menu
+    - Font Pairing - I have seven default font pairings so your content always looks good!
+    - Night Mode - Let visitors toggle night mode to make the page darken for low-light reading
+    - Read Time - Display an estimate for how long an article will take to read
+    - Article Progression Bar - Show a progression bar for how far you've scrolled in an article
+    - Author Info - Choose whether to display the author picture, display name, and description at the bottom of articles
+    - Post Meta Header - Display info such as author URL, comments, tags, categories, post time, and post date via shortcodes before articles
+    - Post Meta Footer - Display info such as author URL, comments, tags, categories, post time, and post date via shortcodes after articles
 
-1. In your admin panel, go to Appearance > Themes and click the Add New button.
-2. Click Upload Theme and Choose File, then select the theme's .zip file. Click Install Now.
-3. Click Activate to use your new theme right away.
+### Night Mode
+![Night Mode Animation](screenshots/night-mode.gif)
 
-== Frequently Asked Questions ==
+### Sticky Menu
+![Sticky Menu Animation](screenshots/sticky-menu.gif)
 
-= Does this theme support any plugins? =
+## In Progress
 
-Malik includes support for Infinite Scroll in Jetpack.
-
-== Changelog ==
-
-= 1.0 - 2 March 2018 =
-* Initial release
-
-== Credits ==
-
-* Based on Underscores https://underscores.me/, (C) 2012-2017 Automattic, Inc., [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
-* normalize.css https://necolas.github.io/normalize.css/, (C) 2012-2016 Nicolas Gallagher and Jonathan Neal, [MIT](https://opensource.org/licenses/MIT)
+I am still trying to decide how I want to wear a sidebar when I'm displaying full width content. I'm working on a few ideas, but if you've got suggestions, let me know!

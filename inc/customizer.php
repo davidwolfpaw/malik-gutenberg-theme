@@ -247,7 +247,7 @@ function malik_customize_register( $wp_customize ) {
 	// Control: Post Meta Header.
 	$wp_customize->add_control( 'post_meta_header_control', array(
 		'label'       => __( 'Post Meta Header', 'malik' ),
-		'description' => __( 'Post meta that displays before the post content.', 'malik' ),
+		'description' => __( 'Post meta that displays before the post content. See shortcodes below.', 'malik' ),
 		'section'     => 'malik_theme_settings',
 		'type'        => 'text',
 		'settings'    => 'post_meta_header',
@@ -264,10 +264,24 @@ function malik_customize_register( $wp_customize ) {
 	// Control: Post Meta Footer.
 	$wp_customize->add_control( 'post_meta_footer_control', array(
 		'label'       => __( 'Post Meta Footer', 'malik' ),
-		'description' => __( 'Post meta that displays after the post content.', 'malik' ),
+		'description' => __( 'Post meta that displays after the post content. See shortcodes below.', 'malik' ),
 		'section'     => 'malik_theme_settings',
 		'type'        => 'text',
 		'settings'    => 'post_meta_footer',
+	) );
+
+	// Setting: Post Meta Message.
+	$wp_customize->add_setting( 'post_meta_message', array(
+		'default' => '',
+	) );
+
+	// Control: Post Meta Message.
+	$wp_customize->add_control( 'post_meta_message_control', array(
+		'label'       => __( 'Post Meta Shortcodes', 'malik' ),
+		'description' => malik_post_meta_shortcode_message(),
+		'section'     => 'malik_theme_settings',
+		'type'        => 'hidden',
+		'settings'    => 'post_meta_message',
 	) );
 
 	if ( isset( $wp_customize->selective_refresh ) ) {
@@ -283,6 +297,26 @@ function malik_customize_register( $wp_customize ) {
 
 }
 add_action( 'customize_register', 'malik_customize_register' );
+
+/**
+ * Creates Post Meta Shortcode Message
+ *
+ * @return message
+ */
+function malik_post_meta_shortcode_message() {
+
+	$message  = '<ul>';
+	$message .= '<li><strong>[post_date]</strong> - Displays the posted or modified date of the post</li>';
+	$message .= '<li><strong>[post_time]</strong> - Displays the posted or modified time of the post</li>';
+	$message .= '<li><strong>[post_author]</strong> - Displays the author of the post</li>';
+	$message .= '<li><strong>[post_comments]</strong> - Displays the number of comments and link to leave a comment</li>';
+	$message .= '<li><strong>[post_tags]</strong> - Displays all tags of the post</li>';
+	$message .= '<li><strong>[post_categories]</strong> - Displays all categories of the post</li>';
+	$message .= '</ul>';
+
+	return $message;
+
+}
 
 /**
  * Sanitize checkbox callbacks
