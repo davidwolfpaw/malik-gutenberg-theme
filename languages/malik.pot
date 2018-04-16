@@ -9,8 +9,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2018-04-10T16:48:48+00:00\n"
-"PO-Revision-Date: 2018-04-10T16:48:48+00:00\n"
+"POT-Creation-Date: 2018-04-16T01:23:36+00:00\n"
+"PO-Revision-Date: 2018-04-16T01:23:36+00:00\n"
 "X-Domain: malik\n"
 
 #: functions.php:35
@@ -29,16 +29,15 @@ msgstr ""
 msgid "Displays in the header, to the right of the site title."
 msgstr ""
 
-#: functions.php:144
+#: functions.php:135
 msgid "Footer"
 msgstr ""
 
-#: functions.php:146
+#: functions.php:137
 msgid "Displays in the footer, below the footer menu."
 msgstr ""
 
-#. Translators: If there are characters in your language that are not * supported by Google Fonts, translate this to 'off'. Do not translate * into your own language.
-#: functions.php:164
+#: functions.php:156
 msgctxt "Theme Google Fonts: on or off"
 msgid "on"
 msgstr ""
@@ -58,6 +57,31 @@ msgstr ""
 #. translators: %1$s: smiley
 #: 404.php:47
 msgid "Try looking in the monthly archives. %1$s"
+msgstr ""
+
+#: inc/template-shortcodes.php:43
+#: inc/template-shortcodes.php:54
+msgid "ago"
+msgstr ""
+
+#: inc/template-shortcodes.php:203
+msgid "% Comments"
+msgstr ""
+
+#: inc/template-shortcodes.php:204
+msgid "1 Comment"
+msgstr ""
+
+#: inc/template-shortcodes.php:205
+msgid "Leave a Comment"
+msgstr ""
+
+#: inc/template-shortcodes.php:253
+msgid "Tagged: "
+msgstr ""
+
+#: inc/template-shortcodes.php:298
+msgid "Categories: "
 msgstr ""
 
 #: inc/customizer.php:31
@@ -84,76 +108,96 @@ msgstr ""
 msgid "Link Active/Hover/Focus Color"
 msgstr ""
 
-#: inc/customizer.php:88
+#: inc/customizer.php:87
 msgid "Malik Theme Settings"
 msgstr ""
 
-#: inc/customizer.php:89
+#: inc/customizer.php:88
 msgid "Settings specific to the Malik theme."
 msgstr ""
 
-#: inc/customizer.php:102
+#: inc/customizer.php:101
 msgid "Header Location"
 msgstr ""
 
-#: inc/customizer.php:103
+#: inc/customizer.php:102
 msgid "Choose whether to place the site header at the top or side of the page.<br /> <strong>Header will always display on top on mobile</strong>"
 msgstr ""
 
-#: inc/customizer.php:123
+#: inc/customizer.php:122
 msgid "Hide Header on Scroll"
 msgstr ""
 
-#: inc/customizer.php:124
+#: inc/customizer.php:123
 msgid "Hide the header (logo, site title, header sidebar) on scroll."
 msgstr ""
 
-#: inc/customizer.php:140
+#: inc/customizer.php:139
 msgid "Hide Header Menu on Scroll"
 msgstr ""
 
-#: inc/customizer.php:141
+#: inc/customizer.php:140
 msgid "Hide the header menu on scroll."
 msgstr ""
 
-#: inc/customizer.php:156
+#: inc/customizer.php:155
 msgid "Font Pairing"
 msgstr ""
 
-#: inc/customizer.php:157
+#: inc/customizer.php:156
 msgid "Pairings of fonts for headings and body content."
 msgstr ""
 
-#: inc/customizer.php:182
+#: inc/customizer.php:181
 msgid "Night Mode"
 msgstr ""
 
-#: inc/customizer.php:183
+#: inc/customizer.php:182
 msgid "Allow a night mode setting to be active for visitors to your site to change to a darker page style."
 msgstr ""
 
-#: inc/customizer.php:199
+#: inc/customizer.php:198
 msgid "Read Time"
 msgstr ""
 
-#: inc/customizer.php:200
+#: inc/customizer.php:199
 msgid "Display an estimate of time to read posts."
 msgstr ""
 
-#: inc/customizer.php:216
+#: inc/customizer.php:215
 msgid "Article Progression Bar"
 msgstr ""
 
-#: inc/customizer.php:217
+#: inc/customizer.php:216
 msgid "Display a progression bar for post length."
 msgstr ""
 
-#: inc/customizer.php:233
+#: inc/customizer.php:232
 msgid "Author Info"
 msgstr ""
 
-#: inc/customizer.php:234
+#: inc/customizer.php:233
 msgid "Display author information on posts."
+msgstr ""
+
+#: inc/customizer.php:249
+msgid "Post Meta Header"
+msgstr ""
+
+#: inc/customizer.php:250
+msgid "Post meta that displays before the post content. See shortcodes below."
+msgstr ""
+
+#: inc/customizer.php:266
+msgid "Post Meta Footer"
+msgstr ""
+
+#: inc/customizer.php:267
+msgid "Post meta that displays after the post content. See shortcodes below."
+msgstr ""
+
+#: inc/customizer.php:280
+msgid "Post Meta Shortcodes"
 msgstr ""
 
 #. translators: %s: post date.
@@ -169,42 +213,73 @@ msgid "by %s"
 msgstr ""
 
 #. translators: used between list items, there is a space after the comma
-#: inc/template-tags.php:62
-#: inc/template-tags.php:156
+#: inc/template-tags.php:96
 msgid ", "
 msgstr ""
 
 #. translators: 1: list of categories.
-#: inc/template-tags.php:65
-msgid "Posted in %1$s"
-msgstr ""
-
-#. translators: used between list items, there is a space after the comma
-#: inc/template-tags.php:69
-msgctxt "list item separator"
-msgid ", "
-msgstr ""
-
-#. translators: 1: list of tags.
-#: inc/template-tags.php:72
-msgid "Tagged %1$s"
-msgstr ""
-
-#. translators: %s: post title
-#: inc/template-tags.php:82
-msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
-msgstr ""
-
-#. translators: %s: Name of current post. Only visible to screen readers
 #: inc/template-tags.php:99
-#: template-parts/content-page.php:37
-msgid "Edit <span class=\"screen-reader-text\">%s</span>"
-msgstr ""
-
-#. translators: 1: list of categories.
-#: inc/template-tags.php:159
 msgctxt "blog category"
 msgid "Posted in"
+msgstr ""
+
+#: inc/template-functions.php:68
+msgctxt "time difference"
+msgid "seconds"
+msgstr ""
+
+#. translators: %s: Number of year(s).
+#: inc/template-functions.php:74
+msgctxt "time difference"
+msgid "%s year"
+msgid_plural "%s years"
+msgstr[0] ""
+
+#. translators: %s: Number of month(s).
+#: inc/template-functions.php:76
+msgctxt "time difference"
+msgid "%s month"
+msgid_plural "%s months"
+msgstr[0] ""
+
+#. translators: %s: Number of week(s).
+#: inc/template-functions.php:78
+msgctxt "time difference"
+msgid "%s week"
+msgid_plural "%s weeks"
+msgstr[0] ""
+
+#. translators: %s: Number of day(s).
+#: inc/template-functions.php:80
+msgctxt "time difference"
+msgid "%s day"
+msgid_plural "%s days"
+msgstr[0] ""
+
+#. translators: %s: Number of hour(s).
+#: inc/template-functions.php:82
+msgctxt "time difference"
+msgid "%s hour"
+msgid_plural "%s hours"
+msgstr[0] ""
+
+#. translators: %s: Number of minute(s).
+#: inc/template-functions.php:84
+msgctxt "time difference"
+msgid "%s minute"
+msgid_plural "%s minutes"
+msgstr[0] ""
+
+#. translators: %s: Number of second(s).
+#: inc/template-functions.php:86
+msgctxt "time difference"
+msgid "%s second"
+msgid_plural "%s seconds"
+msgstr[0] ""
+
+#: inc/template-functions.php:117
+msgctxt "separator in time difference"
+msgid "and"
 msgstr ""
 
 #. translators: 1: title.
@@ -254,12 +329,17 @@ msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searc
 msgstr ""
 
 #: template-parts/content-page.php:24
-#: template-parts/content.php:52
+#: template-parts/content.php:51
 msgid "Pages:"
 msgstr ""
 
 #. translators: %s: Name of current post. Only visible to screen readers
-#: template-parts/content.php:41
+#: template-parts/content-page.php:37
+msgid "Edit <span class=\"screen-reader-text\">%s</span>"
+msgstr ""
+
+#. translators: %s: Name of current post. Only visible to screen readers
+#: template-parts/content.php:40
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr ""
 
