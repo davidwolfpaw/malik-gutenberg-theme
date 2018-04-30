@@ -79,21 +79,18 @@ if ( ! function_exists( 'malik_setup' ) ) :
 		remove_theme_support( 'custom-header' );
 
 		/**
-		 * Add support for Gutenberg.
+		 * Add support for Gutenberg editor color palette.
 		 *
 		 * @link https://wordpress.org/gutenberg/
 		 */
-		add_theme_support( 'gutenberg', array(
-			'wide-images' => true,
-			'colors'      => array(
-				'#1D2731',
-				'#0B3C5D',
-				'#328CC1',
-				'#D6BB53',
-				'#808182',
-				'#EF5656',
-			),
-		) );
+		add_theme_support( 'editor-color-palette',
+			'#1D2731',
+			'#0B3C5D',
+			'#328CC1',
+			'#D6BB53',
+			'#808182',
+			'#EF5656'
+		);
 
 		/**
 		 * Add support for Gutenberg wide images.
