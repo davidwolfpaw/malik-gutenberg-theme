@@ -6,10 +6,6 @@
  */
 
 get_header();
-
-add_filter( 'body_class', function( $classes ) {
-    return array_merge( $classes, array( 'page-no-title' ) );
-} );
 ?>
 
 	<div id="primary" class="content-area">
