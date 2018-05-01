@@ -375,7 +375,7 @@ hr.wp-block-separator {
 }
 
 ul, ol {
-	margin: 0 0 2em 3em;
+	margin: 0 0 2em 0;
 }
 
 ul {
@@ -531,6 +531,16 @@ textarea {
 	/*margin-left: 180px;*/
 }
 
+.page-no-title #content {
+	padding-top: 0;
+	padding-bottom: 0;
+	margin: 0;
+}
+
+.page-no-title .entry-content {
+	margin-top: 0;
+}
+
 /*--------------------------------------------------------------
 # Site Header
 --------------------------------------------------------------*/
@@ -557,7 +567,7 @@ textarea {
 
 .site-header-wrap {
 	/* Fixes spacing issue on hidden header */
-	margin-bottom: 1px;
+	/*margin-bottom: 1px;*/
 }
 
 .site-header-top {
@@ -716,6 +726,7 @@ a:hover, a:active {
 
 #main-navigation li {
 	position: relative;
+	margin-bottom: 0;
 }
 
 #main-navigation a {

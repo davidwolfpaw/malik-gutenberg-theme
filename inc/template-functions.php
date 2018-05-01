@@ -20,6 +20,10 @@ function malik_body_classes( $classes ) {
 	if ( 'side' === get_theme_mod( 'header_location' ) ) {
 		$classes[] = 'header-side';
 	}
+	// Adds a class pf page-no-title to page-no-title.php template
+	if ( is_page_template( 'page-no-title.php' ) ) {
+		$classes[] = 'page-no-title';
+	}
 
 	return $classes;
 }
