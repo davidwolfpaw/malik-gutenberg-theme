@@ -49,7 +49,7 @@
 				</div><!-- .site-branding -->
 
 				<?php
-				if ( true === get_theme_mod( 'night_mode' ) ) :
+				if ( true === get_theme_mod( 'night_mode', true ) ) :
 				?>
 				<div class="site-options">
 					<div id="night-mode"><span class="fas fa-moon"></span></div>

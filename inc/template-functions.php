@@ -17,7 +17,7 @@ function malik_body_classes( $classes ) {
 		$classes[] = 'hfeed';
 	}
 	// Adds a class of header-side if that option is active.
-	if ( 'side' === get_theme_mod( 'header_location' ) ) {
+	if ( 'side' === get_theme_mod( 'header_location', 'top' ) ) {
 		$classes[] = 'header-side';
 	}
 	// Adds a class pf page-no-title to page-no-title.php template

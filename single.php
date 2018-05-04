@@ -19,7 +19,7 @@ get_header(); ?>
 
 			get_template_part( 'template-parts/content', get_post_type() );
 
-			if ( true === get_theme_mod( 'author_info' ) ) :
+			if ( true === get_theme_mod( 'author_info', true ) ) :
 			?>
 				<div class="author-info">
 					<div class="author-image">
