@@ -44,6 +44,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	## Posts and pages
 	## Comments
 # Infinite scroll
+# Misc
 # Media
 	## Captions
 	## Galleries
@@ -1142,6 +1143,13 @@ img.alignright,
 /* When Infinite Scroll has reached its end we need to re-display elements that were hidden (via .neverending) before. */
 .infinity-end.neverending .site-footer {
 	display: block;
+}
+
+/*--------------------------------------------------------------
+# Misc
+--------------------------------------------------------------*/
+img#wpstats {
+	display: none;
 }
 
 /*--------------------------------------------------------------

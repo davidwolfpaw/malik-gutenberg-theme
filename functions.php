@@ -92,6 +92,33 @@ if ( ! function_exists( 'malik_setup' ) ) :
 			'#EF5656'
 		);
 
+		// add_theme_support( 'editor-color-palette',
+		// 	array(
+		// 		'name' => 'Ivory Black',
+		// 		'color' => '#1D2731',
+		// 	),
+		// 	array(
+		// 		'name' => 'Prussian Blue',
+		// 		'color' => '#0B3C5D',
+		// 	),
+		// 	array(
+		// 		'name' => 'Sky Blue',
+		// 		'color' => '#328CC1',
+		// 	),
+		// 	array(
+		// 		'name' => 'Gold Leaf',
+		// 		'color' => '#D6BB53',
+		// 	),
+		// 	array(
+		// 		'name' => 'Carbon Grey',
+		// 		'color' => '#808182',
+		// 	),
+		// 	array(
+		// 		'name' => 'Watermelon Red',
+		// 		'color' => '#EF5656',
+		// 	)
+		// );
+
 		/**
 		 * Add support for Gutenberg wide images.
 		 */

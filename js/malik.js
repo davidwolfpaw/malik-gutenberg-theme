@@ -115,14 +115,14 @@ jQuery(document).ready(function($) {
     /* Get viewport width */
     var responsive_viewport = $(window).width();
 
-    // If header is on the side and screen is wide enough, ignore header stickiness.
-    // if( ( 'side' === malik_options.header_location && ( responsive_viewport < 768 ) ) || 'top' === malik_options.header_location ) {
-
+      const masthead = document.getElementById('masthead');
       const siteHeader = $('.site-header');
       const siteHeaderTop = $('.site-header-top');
       const siteNavigation = $('.site-navigation');
       const siteContent = $('.site-content');
       let headerHeight = siteHeader.height();
+      // Calculate the masthead height more precisely to avoid a pixel gap for cover images.
+      let mastheadStyle = getComputedStyle( masthead, '');
 
       // Set scrolling variables
       let scrolling = false;
@@ -133,7 +133,9 @@ jQuery(document).ready(function($) {
 
       if( 'top' === sideOrTop() ) {
         // Push the site content below the fixed header.
-        siteContent.css( 'margin-top', headerHeight);
+        siteContent.css( 'margin-top', mastheadStyle['height']);
+
+        console.log(mastheadStyle['height']);
 
         calculateHeaderTop();
       }
@@ -267,8 +269,6 @@ jQuery(document).ready(function($) {
           siteHeader.addClass('fade');
         }
       }
-
-    // } // End If Header Top
 
   }(jQuery));
 
