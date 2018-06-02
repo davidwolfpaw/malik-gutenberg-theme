@@ -9,12 +9,17 @@
  * Adds custom classes to the array of body classes.
  *
  * @param array $classes Classes for the body element.
- * @return array
+ * @return array $classes Classes for the body element.
  */
 function malik_body_classes( $classes ) {
-	// Adds a class of hfeed to non-singular pages.
 	if ( ! is_singular() ) {
+		// Adds a class of hfeed and h-feed to non-singular pages for microformats v2.
 		$classes[] = 'hfeed';
+		$classes[] = 'h-feed';
+	} else {
+		// Adds a class of hentry and h-entry for microformats v2.
+		$classes[] = 'h-entry';
+		$classes[] = 'hentry';
 	}
 	// Adds a class of header-side if that option is active.
 	if ( 'side' === get_theme_mod( 'header_location', 'top' ) ) {
@@ -25,9 +30,70 @@ function malik_body_classes( $classes ) {
 		$classes[] = 'page-no-title';
 	}
 
-	return $classes;
+	return array_unique( $classes );
 }
 add_filter( 'body_class', 'malik_body_classes' );
+
+/**
+ * Adds custom classes to the array of post classes.
+ * These classes extend Microformats2 support.
+ *
+ * @link http://microformats.org/wiki/microformats2
+ *
+ * @param array $classes Classes for the post element.
+ * @return array $classes Classes for the post element.
+ */
+function malik_post_classes( $classes ) {
+	// Remove hentry class from post classes.
+	$classes = array_diff( $classes, array( 'hentry' ) );
+	if ( ! is_singular() ) {
+		// Adds a class of hentry and h-entry for microformats v2.
+		// These are already added to the body class on singular pages.s
+		$classes[] = 'h-entry';
+		$classes[] = 'hentry';
+	}
+
+	return array_unique( $classes );
+}
+add_filter( 'post_class', 'malik_post_classes' );
+
+/**
+ * Adds custom classes to the array of comment classes.
+ * These classes extend Microformats2 support.
+ *
+ * @link http://microformats.org/wiki/microformats2
+ *
+ * @param array $classes Classes for the comment element.
+ * @return array $classes Classes for the comment element.
+ */
+function malik_comment_classes( $classes ) {
+
+	$classes[] = 'u-comment';
+	$classes[] = 'h-cite';
+
+	return array_unique( $classes );
+}
+add_filter( 'comment_class', 'malik_comment_classes', 11 );
+
+/**
+ * Adds classes to avatar.
+ * These classes extend Microformats2 support.
+ *
+ * @link http://microformats.org/wiki/microformats2
+ *
+ * @param array $args Arguments passed to get_avatar_data(), after processing.
+ * @param int|string|object $id_or_email A user ID, email address, or comment object
+ * @return array $args
+ */
+function malik_mf2_get_avatar_data( $args, $id_or_email ) {
+	if ( ! isset( $args['class'] ) ) {
+		$args['class'] = array( 'u-photo' );
+	} else {
+		$args['class'][] = 'u-photo';
+	}
+	return $args;
+}
+add_filter( 'get_avatar_data', 'malik_mf2_get_avatar_data', 11, 2 );
 
 /**
  * Add a pingback url auto-discovery header for singularly identifiable articles.
